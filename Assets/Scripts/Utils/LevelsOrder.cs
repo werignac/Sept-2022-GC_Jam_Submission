@@ -8,6 +8,20 @@ public class LevelsOrder : ScriptableObject
     [SerializeField]
     private GameObject[] levels;
 
+    public int NumLevels
+    {
+        get { return (levels.Length); }
+    }
+
+    public GameObject GetLevel(int index)
+    {
+        if(index < 0 || index >= levels.Length)
+        {
+            return (null);
+        }
+        return (levels[index]);
+    }
+
     internal static LevelsOrder GetLevelsOrder()
     {
         string path = "Assets/LevelOrder.asset";
