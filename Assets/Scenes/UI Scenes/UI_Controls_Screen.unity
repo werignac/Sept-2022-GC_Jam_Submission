@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 884704925}
   - component: {fileID: 884704924}
   m_Layer: 5
-  m_Name: Settings Button
+  m_Name: Exit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 884704927}
-  _default: {fileID: 21300000, guid: 75ec8281938df044999c6dc630bd9534, type: 3}
-  _pressed: {fileID: 21300000, guid: 75ec8281938df044999c6dc630bd9534, type: 3}
+  _default: {fileID: 21300000, guid: 31551c29884765e4293d0e26799e94de, type: 3}
+  _pressed: {fileID: 21300000, guid: 31551c29884765e4293d0e26799e94de, type: 3}
   _compressClip: {fileID: 8300000, guid: f94d6cfa5a64e934caa6686eaf66e37d, type: 3}
   _uncompressClip: {fileID: 8300000, guid: 990f98a0f2d6adf45a818f20da29bb22, type: 3}
   _source: {fileID: 884704924}
