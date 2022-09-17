@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
 		foreach (Tentacle tentacle in myTentacles)
 			tentacle.SetMaxExtentionLength(maxTentacleExtentionDistance);
+
+		GameObject.FindWithTag("CameraTargetGroup").GetComponent<CameraGroupController>().SetUpTentacles(gameObject);
 	}
 
 	public void PushWithArm(int armIndex)
