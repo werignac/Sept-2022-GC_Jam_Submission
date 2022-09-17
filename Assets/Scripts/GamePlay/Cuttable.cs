@@ -5,8 +5,8 @@ using UnityEngine;
 public class Cuttable : MonoBehaviour
 {
 
-    public void Cut()
+    public void Cut(GameObject thing)
     {
-        
+        print("Oof, ouch, owie my " + thing.name + " has been cut.");
     }
 }
