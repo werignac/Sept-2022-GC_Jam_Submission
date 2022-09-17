@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsOrder: {fileID: 11400000, guid: 1f4b7d86097eda6458d71c49859ccbaf, type: 2}
+  levelProgress: {fileID: 11400000, guid: d73c123166319554e84d2bd419c4e93d, type: 2}
 --- !u!212 &7681025282535319895
 SpriteRenderer:
   m_ObjectHideFlags: 0

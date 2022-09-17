@@ -20,6 +20,7 @@ public class LevelsOrder : ScriptableObject
 	[SerializeField]
 	[HideInInspector]
 	private int currentLevelIndex;
+	public int CurrentLevelIndex => currentLevelIndex;
 
 	public int NumLevels
 	{
@@ -65,7 +66,7 @@ public class LevelsOrder : ScriptableObject
 		currentLevel = Instantiate(level);
 	}
 
-	private GameObject GetLevel(int index)
+	public GameObject GetLevel(int index)
 	{
 		if(index < 0 || index >= levels.Length)
 		{

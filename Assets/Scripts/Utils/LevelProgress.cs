@@ -16,9 +16,6 @@ public class LevelProgress : ScriptableObject
 
     public void CompletedLevel(int num)
     {
-        if(num >= levelsCompleted)
-        {
-            levelsCompleted = num + 1;
-        }
+        levelsCompleted = Mathf.Max(levelsCompleted, num + 1);
     }
 }
