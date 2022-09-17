@@ -13,6 +13,7 @@ public abstract class PlayerCommander : MonoBehaviour
 	/// <summary> Maps a mouse button index to the index of the arm the button is currently controlling, or to -1 if the button isn't controlling an arm. </summary>
 	private int[] mouseButtonToControlledArmIndex = { -1, -1 };
 	private float torqueDirection = 0;
+	private KeyCode restartButton = KeyCode.R;
 
 	private void Start()
 	{
@@ -57,6 +58,12 @@ public abstract class PlayerCommander : MonoBehaviour
 
 		// Determine the torque direction.
 		torqueDirection = GetTorqueDirection();
+
+		if(Input.GetKeyUp(restartButton))
+        {
+			LevelsOrder l = Resources.Load<LevelsOrder>("LevelOrder");
+			l.LoadLevel(l.CurrentLevelIndex);
+        }
 	}
 
 	private void FixedUpdate()
