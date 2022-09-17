@@ -17,7 +17,7 @@ public class RollingPlayerCommander : PlayerCommander
 	public override float GetTorqueDirection()
 	{
 		return
-			(leftKeys.Any(kc => Input.GetKey(kc)) ?-1f :0f)
-			+ (rightKeys.Any(kc => Input.GetKey(kc)) ? 1f : 0f);
+			(leftKeys.Any(kc => Input.GetKey(kc)) ?1f :0f)
+			+ (rightKeys.Any(kc => Input.GetKey(kc)) ?-1f : 0f);
 	}
 }

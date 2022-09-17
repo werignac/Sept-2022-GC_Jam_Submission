@@ -6,7 +6,7 @@ using System.Linq;
 public class Player : MonoBehaviour
 {
 	[Tooltip("The amount of torque, multiplied by the current mass of the starfish, to be used for rolling.")]
-	public float rollTorquePerKilogram = 1f;
+	public float rollTorquePerKilogram = 10f;
 	public float armPushDistance = 1f;
 	public Rigidbody2D body;
 	/// <summary> Indexed references to each of this Player's Tentacles, or to null if an index currently has no tentacle. </summary>
