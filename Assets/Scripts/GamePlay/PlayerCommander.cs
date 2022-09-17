@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Player))]
 public abstract class PlayerCommander : MonoBehaviour
 {
+	[SerializeField]
+	[HideInInspector]
 	private Player myPlayer;
 	/// <summary> Maps a mouse button index to the index of the arm the button is currently controlling, or to -1 if the button isn't controlling an arm. </summary>
 	private int[] mouseButtonToControlledArmIndex = { -1, -1 };
@@ -44,7 +46,7 @@ public abstract class PlayerCommander : MonoBehaviour
 		}
 
 		// Try to punch with any arms that should punch.
-		for(int armIndex=0; armIndex<Player.armCount; armIndex++)
+		for(int armIndex=0; armIndex<myPlayer.MaxTentacleCount; armIndex++)
 		{
 			if(ShouldPunchWithArm(armIndex))
 				myPlayer.PunchWithArm(armIndex);

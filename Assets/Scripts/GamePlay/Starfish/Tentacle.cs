@@ -18,11 +18,6 @@ public class Tentacle : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Todo: Remove
-	/// </summary>
-	[SerializeField]
-	private KeyCode extentionKey = KeyCode.Q;
-	/// <summary>
 	/// The physics spring used to control the
 	/// arm.
 	/// </summary>
@@ -49,9 +44,9 @@ public class Tentacle : MonoBehaviour
 	/// </summary>
 	private float maxExtendDistance = 5f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
 		joint = GetComponent<RelativeJoint2D>();
 		if (joint)
 		{
@@ -60,7 +55,9 @@ public class Tentacle : MonoBehaviour
 			Debug.LogFormat("Base Angular Offset for {0}: {1}", name, baseAngularOffset);
 		}
 		State = TentacleState.IDLE;
-    }
+	}
+
+	public float GetMass() => 1f; // TODO
 
 	/// <summary>
 	/// Returns a uniform vector in the direction that
@@ -205,43 +202,11 @@ public class Tentacle : MonoBehaviour
 		return false;
 	}
 
-	private struct TentacleInputs
-	{
-		public bool extendPush;
-		public bool extendGrapple;
-		public Vector2 extendPosition;
-		public bool anyInput;
-		public TentacleInputs(KeyCode grappleKey)
-		{
-			extendPush = Input.GetKey(grappleKey);
-			// TODO: UI overrides click on screen.
-			extendGrapple = Input.GetMouseButton(0);
-			extendPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			anyInput = extendPush || extendGrapple;
-		}
-	}
-
 	// Update is called once per frame
 	void FixedUpdate()
-    {
-		TentacleInputs inputs = new TentacleInputs(extentionKey);
+	{
 
-		if (inputs.anyInput)
-		{
-			if (inputs.extendGrapple)
-			{
-				ExtendGrapple(inputs.extendPosition);
-			}
-			else if (inputs.extendPush)
-			{
-				ExtendPush(1);
-			}
-		}
-		else if (State != TentacleState.IDLE)
-		{
-			StopExtending();
-		}
-    }
+	}
 
 	private void OnDrawGizmos()
 	{
