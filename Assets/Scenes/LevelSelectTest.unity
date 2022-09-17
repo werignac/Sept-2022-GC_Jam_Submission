@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 1993003611}
   - component: {fileID: 1993003610}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Level Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1652b6c73363786429e3bd6e5b3f4cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelsOrder: {fileID: 11400000, guid: 1f4b7d86097eda6458d71c49859ccbaf, type: 2}
   LevelSelectButtonPrefab: {fileID: 3752092735521265097, guid: ff0f596f369e5df418d56e629e83c4c1, type: 3}
   LevelField: {fileID: 1689047364}
   LevelPanel: {fileID: 474113998}

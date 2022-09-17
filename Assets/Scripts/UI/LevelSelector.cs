@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
+    public LevelsOrder levelsOrder;
     public GameObject LevelSelectButtonPrefab;
     public Transform LevelField;
     public GameObject LevelPanel;
@@ -39,10 +40,12 @@ public class LevelSelector : MonoBehaviour
 
     public void LevelButtonClicked(int levelIndex)
     {
-        Debug.Log("Clicked button " + levelIndex);
-        if (levelIndex <= maxLevel)
-        {
-            LevelPanel.SetActive(true);
-        }
+        // TODO: Panel with level info
+        //Debug.Log("Clicked button " + levelIndex);
+        //if (levelIndex <= maxLevel)
+        //{
+        //    LevelPanel.SetActive(true);
+        //}
+        levelsOrder.LoadLevel(levelIndex);
     }
 }

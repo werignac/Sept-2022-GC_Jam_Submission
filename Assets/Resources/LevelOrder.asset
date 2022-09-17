@@ -12,54 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3ae7800c37b114597618eb266453b2, type: 3}
   m_Name: LevelOrder
   m_EditorClassIdentifier: 
+  mainGameScenePath: Assets/Scenes/Main Game Scene.unity
   levels:
   - {fileID: 1283450127, guid: b7fe5ffe344a1094ba370ad821fad0a8, type: 3}
   - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
-  - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
+  currentLevel: {fileID: 0}
+  currentLevelIndex: 0

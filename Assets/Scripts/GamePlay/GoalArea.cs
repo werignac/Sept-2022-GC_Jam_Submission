@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GoalArea : MonoBehaviour
 {
+	public LevelsOrder levelsOrder;
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.GetComponentInParent<Player>() != null)
 		{
 			// Win the level.
 			// Move to the next level.
-			int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-			if(currentSceneIndex < SceneManager.sceneCountInBuildSettings-1)
-				SceneManager.LoadScene(currentSceneIndex + 1);
+			levelsOrder.LoadNextLevel();
 		}
 	}
 }
