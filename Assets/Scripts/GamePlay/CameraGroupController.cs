@@ -9,18 +9,10 @@ public class CameraGroupController : MonoBehaviour
 {
     private CinemachineTargetGroup targetGroup;
 
-    [SerializeField]
-    private Transform tentaclesParent;
-
     // Start is called before the first frame update
     void Start()
     {
         targetGroup = GetComponent<CinemachineTargetGroup>();
-        for(int i = 0; i < tentaclesParent.childCount; ++i)
-        {
-            int current = i;
-            tentaclesParent.GetChild(i).GetComponent<Tentacle>().onDetach.AddListener(delegate { RemoveTentacle(current); });
-        }
     }
 
     // Update is called once per frame
@@ -29,8 +21,26 @@ public class CameraGroupController : MonoBehaviour
         
     }
 
-    private void RemoveTentacle(int index)
+    public void SetUpTentacles(GameObject playerParent)
     {
-        targetGroup.RemoveMember(tentaclesParent.GetChild(index));
+        while(targetGroup.m_Targets.Length > 0)
+        {
+            targetGroup.RemoveMember(targetGroup.m_Targets[0].target);
+        }
+        var children = playerParent.GetComponentsInChildren<Rigidbody2D>();
+        foreach(var child in children)
+        {
+            Tentacle childTentacle = child.gameObject.GetComponent<Tentacle>();
+            if (childTentacle != null)
+            {
+                childTentacle.onDetach.AddListener(delegate { RemoveTentacle(child.transform); });
+            }
+            targetGroup.AddMember(child.transform, 1, 0);
+        }
+    }
+
+    private void RemoveTentacle(Transform tentacleTransform)
+    {
+        targetGroup.RemoveMember(tentacleTransform);
     }
 }
