@@ -137,8 +137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302542634}
-  - component: {fileID: 302542636}
-  - component: {fileID: 302542635}
   m_Layer: 0
   m_Name: Starfish
   m_TagString: Untagged
@@ -163,38 +161,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302542635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302542633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de321fa97a24a7647abae56e9954617c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myPlayer: {fileID: 0}
-  jumpKey: 32
-  leftKeys: 6100000014010000
-  rightKeys: 6400000013010000
---- !u!114 &302542636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302542633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ac00ead0d4a084fa0be061d4064af1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rollTorquePerKilogram: 10
-  armPushDistance: 1
-  body: {fileID: 1780801849}
-  myTentacles: []
 --- !u!1 &321356102
 GameObject:
   m_ObjectHideFlags: 0
