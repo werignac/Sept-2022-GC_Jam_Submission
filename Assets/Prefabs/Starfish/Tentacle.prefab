@@ -170,9 +170,9 @@ RelativeJoint2D:
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_MaxForce: 100
-  m_MaxTorque: 40
-  m_CorrectionScale: 0.2
+  m_MaxForce: 500
+  m_MaxTorque: 500
+  m_CorrectionScale: 0.6
   m_AutoConfigureOffset: 0
   m_LinearOffset: {x: 0, y: -0.806}
   m_AngularOffset: 0
@@ -189,4 +189,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canGrapple: 0
-  extentionKey: 101
