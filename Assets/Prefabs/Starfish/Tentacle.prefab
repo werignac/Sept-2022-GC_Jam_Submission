@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 7421362858650188331}
   - component: {fileID: 7421362858650188325}
   - component: {fileID: 7421362858650188330}
+  - component: {fileID: 7862789044678071390}
   m_Layer: 8
   m_Name: Tentacle
   m_TagString: Untagged
@@ -147,10 +148,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 0.25
+  m_LinearDrag: 0.5
+  m_AngularDrag: 0.5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -165,13 +166,27 @@ RelativeJoint2D:
   m_GameObject: {fileID: 7421362858650188328}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_MaxForce: 100
-  m_MaxTorque: 20
+  m_MaxTorque: 40
   m_CorrectionScale: 0.2
-  m_AutoConfigureOffset: 1
+  m_AutoConfigureOffset: 0
   m_LinearOffset: {x: 0, y: -0.806}
   m_AngularOffset: 0
+--- !u!114 &7862789044678071390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421362858650188328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7beee023864f748a5e95850f0e84a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canGrapple: 0
+  extentionKey: 101
