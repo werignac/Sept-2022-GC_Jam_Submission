@@ -48,8 +48,10 @@ public abstract class PlayerCommander : MonoBehaviour
 		// Try to punch with any arms that should punch.
 		for(int armIndex=0; armIndex<myPlayer.MaxTentacleCount; armIndex++)
 		{
-			if(ShouldPunchWithArm(armIndex))
-				myPlayer.PunchWithArm(armIndex);
+			if(ShouldPushWithArm(armIndex))
+				myPlayer.PushWithArm(armIndex);
+			else
+				myPlayer.RetractArm(armIndex);
 		}
 
 		// Determine the torque direction.
@@ -75,6 +77,6 @@ public abstract class PlayerCommander : MonoBehaviour
 		return result;
 	}
 
-	public abstract bool ShouldPunchWithArm(int armIndex);
+	public abstract bool ShouldPushWithArm(int armIndex);
 	public abstract float GetTorqueDirection();
 }

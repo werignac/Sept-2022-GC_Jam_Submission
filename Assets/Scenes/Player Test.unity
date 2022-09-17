@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 302542634}
   - component: {fileID: 302542636}
   - component: {fileID: 302542635}
+  - component: {fileID: 302542637}
   m_Layer: 0
   m_Name: Starfish
   m_TagString: Untagged
@@ -195,6 +196,20 @@ MonoBehaviour:
   armPushDistance: 1
   body: {fileID: 1780801849}
   myTentacles: []
+--- !u!114 &302542637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302542633}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62877f991241aa449991ee087c258d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 0}
+  keysForEachArm: 3001000061000000770000006400000020000000
 --- !u!1 &321356102
 GameObject:
   m_ObjectHideFlags: 0

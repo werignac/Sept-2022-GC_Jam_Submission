@@ -20,9 +20,14 @@ public class Player : MonoBehaviour
 		myTentacles = GetComponentsInChildren<Tentacle>();
 	}
 
-	public void PunchWithArm(int armIndex)
+	public void PushWithArm(int armIndex)
 	{
 		GetTentacle(armIndex)?.ExtendPush(armPushDistance);
+	}
+
+	public void RetractArm(int armIndex)
+	{
+		GetTentacle(armIndex)?.StopExtending();
 	}
 
 	public void ExtendArm(int armIndex, Vector2 targetPosition)

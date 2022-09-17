@@ -6,9 +6,9 @@ public class OnlyPunchingPlayerCommander : PlayerCommander
 {
 	public KeyCode[] keysForEachArm = { KeyCode.LeftShift, KeyCode.A, KeyCode.W, KeyCode.D, KeyCode.Space};
 
-	public override bool ShouldPunchWithArm(int armIndex)
+	public override bool ShouldPushWithArm(int armIndex)
 	{
-		return Input.GetKeyDown(keysForEachArm[armIndex]);
+		return Input.GetKey(keysForEachArm[armIndex]);
 	}
 
 	public override float GetTorqueDirection()
