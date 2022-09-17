@@ -87,7 +87,7 @@ public class Tentacle : MonoBehaviour
 	/// </summary>
 	public Vector2 GetExtentionDirection()
 	{
-		return Quaternion.AngleAxis(baseAngularOffset, Vector3.forward) * -baseExtention.normalized;
+		return Quaternion.AngleAxis(-baseAngularOffset, Vector3.forward) * -baseExtention.normalized;
 	}
 
 	#endregion
@@ -104,7 +104,6 @@ public class Tentacle : MonoBehaviour
 		{
 			case TentacleState.IDLE:
 			case TentacleState.EXTENDED_PUSH:
-			case TentacleState.GRAPPLED:
 				return true;
 			default:
 				return false;
@@ -231,6 +230,7 @@ public class Tentacle : MonoBehaviour
 		if (State == TentacleState.GRAPPLED)
 		{
 			Detach();
+			return true;
 		}
 		return false;
 	}
@@ -252,6 +252,41 @@ public class Tentacle : MonoBehaviour
 			return false;
 	}
 
+	private void CreateHingeJointFixedWorld(Vector2 worldPos)
+	{
+		HingeJoint2D joint = gameObject.AddComponent<HingeJoint2D>();
+
+		Vector3 relativeJointAnchor = transform.InverseTransformPoint(worldPos);
+		
+		joint.enableCollision = true;
+		joint.connectedBody = null;
+		joint.autoConfigureConnectedAnchor = true;
+		joint.anchor = relativeJointAnchor;
+		joint.connectedAnchor = worldPos;
+		joint.useMotor = false;
+		joint.useLimits = false;
+		joint.breakForce = float.PositiveInfinity;
+		joint.breakTorque = float.PositiveInfinity;
+	}
+
+	private void CreateHingeJointRigidBody(Vector2 worldPos, Rigidbody2D connectedBody)
+	{
+		FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+
+		Vector3 relativeJointAnchor = transform.InverseTransformPoint(worldPos);
+		Vector3 relativeJointConnectedAnchor = connectedBody.transform.InverseTransformPoint(worldPos);
+
+		joint.enableCollision = true;
+		joint.connectedBody = connectedBody;
+		joint.autoConfigureConnectedAnchor = true;
+		joint.anchor = relativeJointAnchor;
+		joint.connectedAnchor = relativeJointConnectedAnchor;
+		joint.dampingRatio = 0;
+		joint.frequency = 0;
+		joint.breakForce = float.PositiveInfinity;
+		joint.breakTorque = float.PositiveInfinity;
+	}
+
 	private void CollisionHandling(Collision2D collision)
 	{
 		bool lookingForGrapple = State == TentacleState.EXTENDED_GRAPPLE;
@@ -265,8 +300,18 @@ public class Tentacle : MonoBehaviour
 			{
 				if (Vector2.Dot(contact.normal, forward) < 0)
 				{
-					
+					if (TryGetComponentInParent(collision.gameObject, out Rigidbody2D otherRigid))
+					{
+						CreateHingeJointRigidBody(contact.point, otherRigid);
+					}
+					else
+					{
+						CreateHingeJointFixedWorld(contact.point);
+					}
 
+					joint.linearOffset = baseExtention;
+					joint.angularOffset = baseAngularOffset;
+					State = TentacleState.GRAPPLED;
 
 					break;
 				}
@@ -274,6 +319,11 @@ public class Tentacle : MonoBehaviour
 		}
 	}
 
+	private static bool TryGetComponentInParent<T>(GameObject gameObject, out T component) where T : Component
+	{
+		component = gameObject.GetComponentInParent<T>();
+		return component != null;
+	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -326,7 +376,16 @@ public class Tentacle : MonoBehaviour
 			StopExtending();
 		}
 
+		if (! inputs.extendGrapple && State == TentacleState.GRAPPLED)
+		{
+			StopGrapple();
+
+		}
+
 		//TODO: Don't Remove
+
+		if (canGrapple)
+			Debug.DrawRay(Vector3.zero, GetExtentionDirection(), Color.red);
 
 		if (State == TentacleState.EXTENDED_GRAPPLE)
 		{
