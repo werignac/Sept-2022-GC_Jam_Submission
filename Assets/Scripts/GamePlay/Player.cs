@@ -14,11 +14,17 @@ public class Player : MonoBehaviour
 	[HideInInspector]
 	private Tentacle[] myTentacles;
 	public IEnumerable<Tentacle> tentacleEnumerable => myTentacles;
+	[SerializeField]
+	[Tooltip("The maximum distance a tentacle can extend for grappling. If it is lower than the distance for pushing, both will be affected.")]
+	private float maxTentacleExtentionDistance = 5f;
 
 	private void Start()
 	{
 		// 2022-09-17-10:38: This way of initializing myTentacles must be changed if a player starts with <5 tentacles, possibly by creating "tentacle base" objects.
 		myTentacles = GetComponentsInChildren<Tentacle>();
+
+		foreach (Tentacle tentacle in myTentacles)
+			tentacle.SetMaxExtentionLength(maxTentacleExtentionDistance);
 	}
 
 	public void PushWithArm(int armIndex)
