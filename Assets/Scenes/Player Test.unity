@@ -535,6 +535,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1149619553}
     m_Modifications:
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
     - target: {fileID: 7421362858214178600, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: t5_collider
@@ -1138,6 +1150,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1149619553}
     m_Modifications:
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5157232
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5157232
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421362858214178597, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7421362858214178600, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: t1_collider

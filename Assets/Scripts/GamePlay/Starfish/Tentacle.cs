@@ -60,12 +60,12 @@ public class Tentacle : MonoBehaviour
 	public float GetMass() => 1f; // TODO
 
 	/// <summary>
-	/// Returns a uniform vector in the direction that
+	/// Returns a uniform vector in the body's local space in the direction that
 	/// the arm is pointing in (most of the time).
 	/// </summary>
 	public Vector2 GetExtentionDirection()
 	{
-		return Quaternion.AngleAxis(baseAngularOffset, Vector3.forward) * -baseExtention.normalized;
+		return Quaternion.AngleAxis(baseAngularOffset, Vector3.back) * -baseExtention.normalized;
 	}
 
 	/// <summary>
@@ -208,6 +208,7 @@ public class Tentacle : MonoBehaviour
 
 	}
 
+	#if UNITY_EDITOR
 	private void OnDrawGizmos()
 	{
 		if (joint)
@@ -216,4 +217,10 @@ public class Tentacle : MonoBehaviour
 			Gizmos.DrawWireSphere(joint.target, 0.25f);
 		}
 	}
+
+	private void OnGUI()
+	{
+		GUI.Label(new Rect(new Vector2(0, Screen.height)+Vector2.Scale(Camera.main.WorldToScreenPoint(transform.position), new Vector2(1, -1)), new Vector2(100, 20)), State.ToString());
+	}
+#endif
 }

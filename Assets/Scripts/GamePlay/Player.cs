@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	[HideInInspector]
 	private Tentacle[] myTentacles;
+	public IEnumerable<Tentacle> tentacleEnumerable => myTentacles;
 
 	private void Start()
 	{
@@ -30,14 +31,25 @@ public class Player : MonoBehaviour
 		GetTentacle(armIndex)?.StopExtending();
 	}
 
-	public void ExtendArm(int armIndex, Vector2 targetPosition)
+	public bool ExtendArm(int armIndex, Vector2 targetPosition)
 	{
-		GetTentacle(armIndex)?.ExtendGrapple(targetPosition);
+		Tentacle tentacle = GetTentacle(armIndex);
+		if(tentacle == null)
+			return false;
+		else
+			return tentacle.ExtendGrapple(targetPosition);
 	}
 
-	public void DetachArm(int armIndex)
+	public void StopGrappleExtending(int armIndex)
 	{
-		GetTentacle(armIndex)?.StopGrapple();
+		Tentacle tentacle = GetTentacle(armIndex);
+		if (tentacle != null)
+		{
+			if(tentacle.State == Tentacle.TentacleState.GRAPPLED)
+				tentacle.StopGrapple();
+			else if(tentacle.State == Tentacle.TentacleState.EXTENDED_GRAPPLE)
+				tentacle.StopExtending();
+		}
 	}
 
 	/// <summary>Call this function from FixedUpdate() or similar physics events.</summary>

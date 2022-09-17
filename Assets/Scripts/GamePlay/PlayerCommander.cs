@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary> This script runs earlier in the Script Execution Order (see Project Settings). </summary>
 [RequireComponent(typeof(Player))]
@@ -36,10 +37,10 @@ public abstract class PlayerCommander : MonoBehaviour
 				}
 			} else // If the button IS controlling an arm...
 			{
-				// Can detach and stop controlling the current arm:
+				// Can [retract or detach] and stop controlling the current arm:
 				if( ! Input.GetMouseButton(mouseButton))
 				{
-					myPlayer.DetachArm(controlledArmIndex);
+					myPlayer.StopGrappleExtending(controlledArmIndex);
 					mouseButtonToControlledArmIndex[mouseButton] = -1;
 				}
 			}
@@ -50,7 +51,7 @@ public abstract class PlayerCommander : MonoBehaviour
 		{
 			if(ShouldPushWithArm(armIndex))
 				myPlayer.PushWithArm(armIndex);
-			else
+			else if(myPlayer.GetTentacle(armIndex).State == Tentacle.TentacleState.EXTENDED_PUSH)
 				myPlayer.RetractArm(armIndex);
 		}
 
@@ -64,10 +65,27 @@ public abstract class PlayerCommander : MonoBehaviour
 		myPlayer.ApplyRollTorque(torqueDirection);
 	}
 
-	/// <returns> The index of the arm best suited to shooting toward the target world-space position. </returns>
+	/// <returns> The index of the arm best suited to shooting toward the target world-space position. Returns 0 if the player has no tentacles.</returns>
 	public int FindBestArmToTarget(Vector3 targetPosition)
 	{
-		return 0; // TODO
+		// This function operates in the Player's local space.
+		Vector3 targetDirection = myPlayer.body.transform.worldToLocalMatrix.MultiplyPoint(targetPosition).normalized;
+		int bestArmIndex = 0;
+		float bestArmScore = float.NegativeInfinity;
+		for(int armIndex=0; armIndex<myPlayer.MaxTentacleCount; armIndex++)
+		{
+			Tentacle tentacle = myPlayer.GetTentacle(armIndex);
+			if(tentacle!=null && (tentacle.State==Tentacle.TentacleState.IDLE || tentacle.State==Tentacle.TentacleState.EXTENDED_PUSH))
+			{
+				float newScore = Vector3.Dot(tentacle.GetExtentionDirection(), targetDirection);
+				if(newScore > bestArmScore)
+				{
+					bestArmScore = newScore;
+					bestArmIndex = armIndex;
+				}
+			}
+		}
+		return bestArmIndex;
 	}
 
 	public Vector3 WorldMousePosition()
