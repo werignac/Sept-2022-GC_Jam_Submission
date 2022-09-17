@@ -118,7 +118,7 @@ public class MovingObject : MonoBehaviour
             bool onTop = false;
             foreach(var contact in collision.contacts)
             {
-                if (contact.normal.y > 0.8)
+                if (contact.normal.y < -0.8)
                 {
                     onTop = true;
                     break;
