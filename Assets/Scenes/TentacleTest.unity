@@ -355,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: canGrapple
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: extentionKey
@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: canGrapple
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: extentionKey
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: canGrapple
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: extentionKey
@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: canGrapple
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7862789044678071390, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: extentionKey
