@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Goal Area Test.unity
+    guid: af1c47e5c7ae15848be761cd7e97ae06
+  - enabled: 1
+    path: Assets/Scenes/Goal Area Test 2.unity
+    guid: 2f4d0e285b98bf44f98faafa933f8f97
   m_configObjects: {}

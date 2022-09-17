@@ -9,15 +9,15 @@ public class RollingPlayerCommander : PlayerCommander
 	public KeyCode[] leftKeys = { KeyCode.A, KeyCode.LeftArrow };
 	public KeyCode[] rightKeys = { KeyCode.D, KeyCode.RightArrow };
 
-	public override bool ShouldPunchWithArm(int armIndex)
+	public override bool ShouldPushWithArm(int armIndex)
 	{
-		return Input.GetKeyDown(jumpKey);
+		return Input.GetKey(jumpKey);
 	}
 
 	public override float GetTorqueDirection()
 	{
 		return
-			(leftKeys.Any(kc => Input.GetKey(kc)) ?-1f :0f)
-			+ (rightKeys.Any(kc => Input.GetKey(kc)) ? 1f : 0f);
+			(leftKeys.Any(kc => Input.GetKey(kc)) ?1f :0f)
+			+ (rightKeys.Any(kc => Input.GetKey(kc)) ?-1f : 0f);
 	}
 }
