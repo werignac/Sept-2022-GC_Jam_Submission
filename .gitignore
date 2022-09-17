@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+# GitHub's template fail to ingore UserSettings/. Unity dev says to ignore it: https://forum.unity.com/threads/whats-the-usersettings-directory.754436/
+/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
