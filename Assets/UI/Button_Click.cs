@@ -15,16 +15,9 @@ public class Button_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(_source.isPlaying);
         _img.sprite = _pressed;
         _source.PlayOneShot(_compressClip);
-        while(_source.isPlaying)
-        {
-            Debug.Log("Playing");
-        }
-        Debug.Log("Stopped");
-
-        //LoadScene(sceneName);
+        LoadScene(sceneName);
     }
 
     public void OnPointerUp(PointerEventData eventData)
