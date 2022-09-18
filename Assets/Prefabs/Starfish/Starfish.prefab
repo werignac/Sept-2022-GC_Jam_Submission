@@ -71388,11 +71388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac00ead0d4a084fa0be061d4064af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollTorquePerKgMeter: 10
+  rollTorquePerKgMeter: 100
   armPushDistance: 1.2
   body: {fileID: 7078611978421404436}
   maxAngular: 200
-  rollForcePerKilogram: 10
+  rollForcePerKilogram: 50
   myTentacles: []
   maxTentacleExtentionDistance: 5
   onTentacleViolentDetach:
