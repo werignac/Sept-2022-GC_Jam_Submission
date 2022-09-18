@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 1596327111}
   - component: {fileID: 1596327110}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Cannibal Starfish
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c015fe6891431b5449d0d8e87ba29517, type: 2}
   m_sharedMaterial: {fileID: 4424170099665048939, guid: c015fe6891431b5449d0d8e87ba29517, type: 2}
@@ -1511,8 +1511,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 82.31
+  m_fontSizeBase: 82.31
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
