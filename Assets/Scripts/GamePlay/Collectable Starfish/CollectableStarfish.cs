@@ -39,7 +39,10 @@ public class CollectableStarfish : MonoBehaviour
 	public void NearColliderInBound(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
+		{
+			collision.gameObject.SendMessageUpwards("EatStarfish");
 			Destroy(gameObject);
+		}
 	}
 
 	public void SetColor(CollectableStarfishData.StarfishColor color)

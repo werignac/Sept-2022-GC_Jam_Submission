@@ -88,4 +88,9 @@ public class Player : MonoBehaviour
 
 	public Tentacle GetTentacle(int index) => MyTentacles[index];
 	public int MaxTentacleCount => MyTentacles.Length;
+	
+	private void EatStarfish()
+	{
+		onEat.Invoke();
+	}
 }
