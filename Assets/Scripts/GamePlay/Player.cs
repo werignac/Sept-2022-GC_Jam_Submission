@@ -16,7 +16,16 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	[HideInInspector]
 	private Tentacle[] myTentacles;
-	public IEnumerable<Tentacle> tentacleEnumerable => myTentacles;
+	private Tentacle[] MyTentacles
+	{
+		get
+		{
+			if(myTentacles.Length == 0)
+				myTentacles = GetComponentsInChildren<Tentacle>();
+			return myTentacles;
+		}
+	}
+	public IEnumerable<Tentacle> tentacleEnumerable => MyTentacles;
 	[SerializeField]
 	[Tooltip("The maximum distance a tentacle can extend for grappling. If it is lower than the distance for pushing, both will be affected.")]
 	private float maxTentacleExtentionDistance = 5f;
@@ -29,7 +38,7 @@ public class Player : MonoBehaviour
 		// 2022-09-17-10:38: This way of initializing myTentacles must be changed if a player starts with <5 tentacles, possibly by creating "tentacle base" objects.
 		myTentacles = GetComponentsInChildren<Tentacle>();
 
-		foreach (Tentacle tentacle in myTentacles)
+		foreach (Tentacle tentacle in MyTentacles)
 			tentacle.SetMaxExtentionLength(maxTentacleExtentionDistance);
 
 		//GameObject.FindWithTag("CameraTargetGroup").GetComponent<CameraGroupController>().SetUpTentacles(gameObject);
@@ -73,10 +82,10 @@ public class Player : MonoBehaviour
 	public void ApplyRollTorque(float torqueDirection)
 	{
 
-		body?.AddTorque(torqueDirection * rollTorquePerKgMeter * (body.inertia + myTentacles.Sum(t => t==null ?0f :t.GetInertiaAroundPlayer())), ForceMode2D.Force);
-		body?.AddForce(new Vector2(-torqueDirection * rollForcePerKilogram * (body.mass + myTentacles.Sum(t => t == null ? 0f : t.GetMass())), 0), ForceMode2D.Force);
+		body?.AddTorque(torqueDirection * rollTorquePerKgMeter * (body.inertia + MyTentacles.Sum(t => t==null ?0f :t.GetInertiaAroundPlayer())), ForceMode2D.Force);
+		body?.AddForce(new Vector2(-torqueDirection * rollForcePerKilogram * (body.mass + MyTentacles.Sum(t => t == null ? 0f : t.GetMass())), 0), ForceMode2D.Force);
 	}
 
-	public Tentacle GetTentacle(int index) => myTentacles[index];
-	public int MaxTentacleCount => myTentacles.Length;
+	public Tentacle GetTentacle(int index) => MyTentacles[index];
+	public int MaxTentacleCount => MyTentacles.Length;
 }

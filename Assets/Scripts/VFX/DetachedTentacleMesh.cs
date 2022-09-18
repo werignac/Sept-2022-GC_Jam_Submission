@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[DefaultExecutionOrder(1)]
 public class DetachedTentacleMesh : MonoBehaviour
 {
 	public Transform rootBone;
