@@ -133,7 +133,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7421362858214178603}
-  - {fileID: 1752583722922647064}
+  - {fileID: 8989668142241311407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Mass: 0.25
   m_LinearDrag: 0.5
   m_AngularDrag: 0.5
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -207,7 +207,10 @@ MonoBehaviour:
   onDetach:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &2294818074006845939
+  onViolentDetach:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1001 &8884211142668127556
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -268,46 +271,42 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1106b1bfed77c8c45a9e4d061295b61c, type: 2}
     - target: {fileID: 919132149155446097, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
       propertyPath: m_Name
-      value: Detached Tentacle Mesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Tentacle Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
---- !u!1 &1376339178641409186 stripped
+--- !u!137 &3205867627625514715 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2939010620570858593, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
+  m_PrefabInstance: {fileID: 8884211142668127556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8613810655847264277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
-  m_PrefabInstance: {fileID: 2294818074006845939}
+  m_PrefabInstance: {fileID: 8884211142668127556}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2487116685999825553
+--- !u!114 &4052956556133819206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376339178641409186}
+  m_GameObject: {fileID: 8613810655847264277}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84808576f7ec37242ac255f95ef009f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootBone: {fileID: 2139137495150366890}
-  skinnedMeshRenderer: {fileID: 5255240657048760940}
+  rootBone: {fileID: 8735967467223376925}
+  skinnedMeshRenderer: {fileID: 3205867627625514715}
   snapBackSpeed: 10
---- !u!4 &1752583722922647064 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
-  m_PrefabInstance: {fileID: 2294818074006845939}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2139137495150366890 stripped
+--- !u!4 &8735967467223376925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 177728181442898265, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
-  m_PrefabInstance: {fileID: 2294818074006845939}
+  m_PrefabInstance: {fileID: 8884211142668127556}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &5255240657048760940 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2939010620570858593, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
-  m_PrefabInstance: {fileID: 2294818074006845939}
+--- !u!4 &8989668142241311407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7cc6c59cb7d430142baea9ec64134bf5, type: 3}
+  m_PrefabInstance: {fileID: 8884211142668127556}
   m_PrefabAsset: {fileID: 0}
