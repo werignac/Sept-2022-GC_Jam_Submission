@@ -19,9 +19,11 @@ public class LevelBuilder : MonoBehaviour
         gameObject.name = levelName;
     }
 
-    public void SaveLevel()
+#if UNITY_EDITOR
+	public void SaveLevel()
     {
         PrefabUtility.SaveAsPrefabAsset(gameObject, "Assets/Resources/Levels/" + levelName + ".prefab");
     }
+#endif
 
 }

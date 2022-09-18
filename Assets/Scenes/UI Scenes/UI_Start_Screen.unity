@@ -584,7 +584,7 @@ MonoBehaviour:
   _compressClip: {fileID: 8300000, guid: f94d6cfa5a64e934caa6686eaf66e37d, type: 3}
   _uncompressClip: {fileID: 8300000, guid: 990f98a0f2d6adf45a818f20da29bb22, type: 3}
   _source: {fileID: 351560425}
-  sceneName: Main Game Scene
+  sceneName: LevelSelectTest
 --- !u!114 &351560427
 MonoBehaviour:
   m_ObjectHideFlags: 0
