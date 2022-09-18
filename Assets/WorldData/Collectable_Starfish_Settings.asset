@@ -16,10 +16,10 @@ MonoBehaviour:
   - color: 0
     animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
   - color: 1
-    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+    animator: {fileID: 22100000, guid: 96ee96c11e37ee74fbb44439db9f2a10, type: 2}
   - color: 2
-    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+    animator: {fileID: 22100000, guid: 356a16a824684d249990640be899e371, type: 2}
   - color: 3
-    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+    animator: {fileID: 22100000, guid: a2c868d7023f2e640ab980928565209a, type: 2}
   - color: 5
-    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+    animator: {fileID: 22100000, guid: 6e1f59ade3bd75a4fa701897100e3639, type: 2}

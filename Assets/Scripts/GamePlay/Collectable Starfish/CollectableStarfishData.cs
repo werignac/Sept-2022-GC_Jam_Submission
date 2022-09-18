@@ -8,7 +8,7 @@ public class CollectableStarfishData : ScriptableObject
 {
 	public const string settingsPath = "Assets/WorldData/Collectable_Starfish_Settings.asset";
 	
-	public enum StarfishColor { BLUE = 0, ORANGE = 1, RED = 2, YELLOW = 3, RANDOM = 4, GOAL = 5 }
+	public enum StarfishColor { BLUE = 0, ORANGE = 1, RED = 2, GREEN = 3, RANDOM = 4, GOAL = 5 }
 
 	[Serializable]
 	public struct StarfishEntry
