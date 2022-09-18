@@ -14,9 +14,11 @@ public class Hazard : MonoBehaviour
 		{
 			Debug.LogFormat("cut at {0}", Time.time);
 			Cuttable cut = other.gameObject.GetComponentInParent<Cuttable>();
-			cut.Cut();
-
-			nextTimeToHit = Time.time + timeBetweenHits;
+			if (cut != null)
+			{
+				cut.Cut();
+				nextTimeToHit = Time.time + timeBetweenHits;
+			}
 		}
     }
 
