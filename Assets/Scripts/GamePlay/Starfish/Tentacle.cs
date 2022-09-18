@@ -13,6 +13,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 	}
 
 	private Player myPlayer;
+	private Rigidbody2D rigidbody;
 	/// <summary>
 	/// The physics spring used to control the
 	/// arm.
@@ -90,6 +91,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 	void Start()
   {
 		myPlayer = GetComponentInParent<Player>();
+		rigidbody = GetComponent<Rigidbody2D>();
 		joint = GetComponent<RelativeJoint2D>();
 		baseExtention = joint.linearOffset;
 		baseAngularOffset = joint.angularOffset;
@@ -100,7 +102,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 		basePosition = RelativeVectorToBody(transform.position);
 	}
 
-	public float GetMass() => 1f; // TODO
+	public float GetMass() => rigidbody.mass;
+	public float GetInertiaAroundPlayer() => rigidbody.inertia + rigidbody.mass*Mathf.Pow(baseExtention.magnitude, 2); // Parallel axis theorem
 
 	/// <summary>
 	/// Sets the maximum distance any arm can extend.
