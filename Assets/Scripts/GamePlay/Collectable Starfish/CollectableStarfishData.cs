@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 
+#if UNITY_EDITOR
 public class CollectableStarfishData : ScriptableObject
 {
 	public const string settingsPath = "Assets/WorldData/Collectable_Starfish_Settings.asset";
@@ -48,4 +49,6 @@ public class CollectableStarfishData : ScriptableObject
 
 		return null;
 	}
+
 }
+#endif
