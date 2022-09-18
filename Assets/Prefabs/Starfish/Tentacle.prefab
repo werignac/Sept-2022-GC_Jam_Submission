@@ -5070,6 +5070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7beee023864f748a5e95850f0e84a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctionFactorwhileOthersGrapple: 0.2
   onPush:
     m_PersistentCalls:
       m_Calls:
