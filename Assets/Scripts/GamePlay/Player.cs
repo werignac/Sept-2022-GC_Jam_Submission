@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	public float rollTorquePerKilogram = 10f;
 	public float armPushDistance = 1f;
 	public Rigidbody2D body;
+	public float maxAngular = 200f;
 	/// <summary> Indexed references to each of this Player's Tentacles, or to null if an index currently has no tentacle. </summary>
 	[SerializeField]
 	[HideInInspector]
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
 	/// <param name="torqueDirection"> From -1..1, where -1 and 1 apply maximum roll torque in opposite directions. </param>
 	public void ApplyRollTorque(float torqueDirection)
 	{
+
 		body?.AddTorque(torqueDirection * rollTorquePerKilogram * (body.mass + myTentacles.Sum(t => t==null ?0f :t.GetMass())), ForceMode2D.Force);
 	}
 

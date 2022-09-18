@@ -389,37 +389,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: t2_collider
       objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188328, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: Tentacle2
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxTorque
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_AngularOffset
       value: -1.2566371
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_CorrectionScale
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -495,37 +471,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: t3_collider
       objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188328, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: Tentacle3
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxTorque
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_AngularOffset
       value: -2.5132742
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_CorrectionScale
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -613,37 +565,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: t5_collider
       objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188328, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: Tentacle5
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxTorque
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_AngularOffset
       value: 1.2566371
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_CorrectionScale
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -719,37 +647,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: t4_collider
       objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188328, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: Tentacle4
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxTorque
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_AngularOffset
       value: 2.5132744
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_CorrectionScale
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -1101,33 +1005,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: t1_collider
       objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188325, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188328, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_Name
       value: Tentacle1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_MaxTorque
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
-      propertyPath: m_CorrectionScale
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7421362858650188330, guid: 083c20acea0bcf944af215d5c36e875f, type: 3}
       propertyPath: m_ConnectedRigidBody
