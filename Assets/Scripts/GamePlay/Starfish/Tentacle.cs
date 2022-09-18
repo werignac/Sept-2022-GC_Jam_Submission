@@ -18,6 +18,13 @@ public class Tentacle : MonoBehaviour, Cuttable
 	/// </summary>
 	private RelativeJoint2D joint;
 	/// <summary>
+	/// The collider of the tentacle collider.
+	/// </summary>
+	private CapsuleCollider2D capCollider;
+	private float baseColliderHeight;
+	private Vector2 baseColliderPosition;
+	private Vector2 basePosition;
+	/// <summary>
 	/// The local distance (-y) the arm is from the center of the
 	/// starfish. Gotten from the joint at start.
 	/// </summary>
@@ -83,6 +90,10 @@ public class Tentacle : MonoBehaviour, Cuttable
 		baseExtention = joint.linearOffset;
 		baseAngularOffset = joint.angularOffset;
 		State = TentacleState.IDLE;
+		capCollider = GetComponentInChildren<CapsuleCollider2D>();
+		baseColliderHeight = capCollider.size.y;
+		baseColliderPosition = capCollider.offset;
+		basePosition = RelativeVectorToBody(transform.position);
 	}
 
 	public float GetMass() => 1f; // TODO
@@ -358,12 +369,14 @@ public class Tentacle : MonoBehaviour, Cuttable
 		{
 			Vector3 forward = transform.up;
 
+			Vector2 tipSphereCenter = transform.position + transform.up * (baseColliderHeight - capCollider.size.x);
+
 			foreach (ContactPoint2D contact in collision.contacts)
 			{
 				// Check that the collision is towards the tip of
 				// the tentacle instead of at the back. (e.g. filter
 				// out weird hits from behind).
-				if (Vector2.Dot(contact.normal, forward) < 0)
+				if (Vector2.Dot(contact.normal, forward) < 0 && Vector2.Distance(contact.point, tipSphereCenter) < capCollider.size.x)
 				{
 					if (TryGetComponentInParent(collision.gameObject, out Rigidbody2D otherRigid))
 						CreateHingeJointRigidBody(contact.point, otherRigid);
@@ -415,7 +428,31 @@ public class Tentacle : MonoBehaviour, Cuttable
 		{
 			WorldToJointOffets(extentionPullWorldPoint);
 		}
-    }
+
+		if (State != TentacleState.DETACHED)
+		{
+			Vector2 newTentaclePosition = (Vector2)RelativeVectorToBody(transform.position);
+			if (Vector2.Dot(basePosition, newTentaclePosition - basePosition) > 0)
+			{
+				SetColliderLength(Vector2.Distance(basePosition, newTentaclePosition));
+			}
+			else
+				SetColliderLength(0);
+		}
+		else
+			SetColliderLength(0);
+	}
+
+	private Vector2 RelativeVectorToBody(Vector2 toConvert)
+	{
+		return joint.connectedBody.transform.InverseTransformPoint(toConvert);
+	}
+
+	private void SetColliderLength(float extraLength)
+	{
+		capCollider.size = new Vector2(capCollider.size.x, baseColliderHeight + extraLength);
+		capCollider.offset = new Vector2(baseColliderPosition.x, baseColliderPosition.y - extraLength/2);
+	}
 
 	#endregion
 

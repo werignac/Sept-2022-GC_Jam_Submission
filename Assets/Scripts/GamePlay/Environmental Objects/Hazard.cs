@@ -12,7 +12,6 @@ public class Hazard : MonoBehaviour
     {
 		if (Time.time > nextTimeToHit)
 		{
-			Debug.LogFormat("cut at {0}", Time.time);
 			Cuttable cut = other.gameObject.GetComponentInParent<Cuttable>();
 			if (cut != null)
 			{
