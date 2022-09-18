@@ -10,7 +10,7 @@ public class CameraGroupController : MonoBehaviour
     private CinemachineTargetGroup targetGroup;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         targetGroup = GetComponent<CinemachineTargetGroup>();
     }
