@@ -106,6 +106,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 		baseColliderPosition = capCollider.offset;
 		basePosition = RelativeVectorToBody(transform.position);
 		baseCorrectionScale = joint.correctionScale;
+
+		FindObjectOfType<SimpleCameraFollower>().AddTarget(transform);
 	}
 
 	public float GetMass() => rigidbody.mass;
@@ -300,6 +302,9 @@ public class Tentacle : MonoBehaviour, Cuttable
 	{
 		if (State != TentacleState.DETACHED)
 		{
+
+			FindObjectOfType<SimpleCameraFollower>().RemoveTarget(transform);
+
 			Destroy(joint);
 			// Do some visual effects to remove the arm.
 			State = TentacleState.DETACHED;
