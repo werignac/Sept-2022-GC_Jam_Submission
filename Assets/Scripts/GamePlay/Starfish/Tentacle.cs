@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,6 +13,10 @@ public class Tentacle : MonoBehaviour, Cuttable
 		IDLE, EXTENDED_PUSH, EXTENDED_GRAPPLE, GRAPPLED, DETACHED
 	}
 
+	public float correctionFactorWhileOthersGrapple = 0.2f;
+	public float correctionFactorWhileGrappling = 0.5f;
+
+	private float baseCorrectionScale;
 	private Player myPlayer;
 	private Rigidbody2D rigidbody;
 	/// <summary>
@@ -100,6 +105,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 		baseColliderHeight = capCollider.size.y;
 		baseColliderPosition = capCollider.offset;
 		basePosition = RelativeVectorToBody(transform.position);
+		baseCorrectionScale = joint.correctionScale;
 	}
 
 	public float GetMass() => rigidbody.mass;
@@ -440,6 +446,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 			WorldToJointOffets(extentionPullWorldPoint);
 		}
 
+		// Manage collider length
 		if (State != TentacleState.DETACHED)
 		{
 			Vector2 newTentaclePosition = (Vector2)RelativeVectorToBody(transform.position);
@@ -452,6 +459,14 @@ public class Tentacle : MonoBehaviour, Cuttable
 		}
 		else
 			SetColliderLength(0);
+
+		// Manage correction scale.
+		if(State==TentacleState.IDLE && myPlayer.tentacleEnumerable.Any(t => t.State==TentacleState.GRAPPLED))
+			joint.correctionScale = baseCorrectionScale * correctionFactorWhileOthersGrapple;
+		else if(State==TentacleState.GRAPPLED || State==TentacleState.EXTENDED_GRAPPLE)
+			joint.correctionScale = baseCorrectionScale * correctionFactorWhileGrappling;
+		else
+			joint.correctionScale = baseCorrectionScale;
 	}
 
 	private Vector2 RelativeVectorToBody(Vector2 toConvert)
