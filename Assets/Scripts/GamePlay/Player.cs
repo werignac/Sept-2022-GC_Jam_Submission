@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 		Tentacle tentacle = GetTentacle(armIndex);
 		if (tentacle != null)
 		{
-			if(tentacle.State == Tentacle.TentacleState.GRAPPLED)
+			if(tentacle.State == Tentacle.TentacleState.GRAPPLED || tentacle.State == Tentacle.TentacleState.GRAPPLED_AND_PUSH)
 				tentacle.StopGrapple();
 			else if(tentacle.State == Tentacle.TentacleState.EXTENDED_GRAPPLE)
 				tentacle.StopExtending();
