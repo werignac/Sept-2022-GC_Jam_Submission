@@ -19,7 +19,7 @@ public abstract class PlayerCommander : MonoBehaviour
 	/// How much better the score of a new grappling arm must be over
 	/// the old grappling arm to switch.
 	/// </summary>
-	private const float armTransferThreshold = 0.3f;
+	private const float armTransferThreshold = 0.5f;
 
 	private void Start()
 	{

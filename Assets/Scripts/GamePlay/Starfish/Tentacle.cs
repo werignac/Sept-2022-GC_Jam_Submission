@@ -57,6 +57,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 		}
 	}
 
+	private float groundAngleThreshold = 10f;
+
 	/// <summary>
 	/// The maximum distance the starfish can extend to
 	/// grapple.
@@ -378,6 +380,9 @@ public class Tentacle : MonoBehaviour, Cuttable
 				// out weird hits from behind).
 				if (Vector2.Dot(contact.normal, forward) < 0 && Vector2.Distance(contact.point, tipSphereCenter) < capCollider.size.x)
 				{
+					if (Vector2.Angle(contact.normal, Vector2.up) < groundAngleThreshold)
+						break;
+
 					if (TryGetComponentInParent(collision.gameObject, out Rigidbody2D otherRigid))
 						CreateHingeJointRigidBody(contact.point, otherRigid);
 					else
