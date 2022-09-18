@@ -5052,7 +5052,7 @@ RelativeJoint2D:
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_MaxForce: 1000
+  m_MaxForce: 5000
   m_MaxTorque: 400
   m_CorrectionScale: 0.5
   m_AutoConfigureOffset: 0
