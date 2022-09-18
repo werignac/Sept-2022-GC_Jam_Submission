@@ -12,6 +12,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 		IDLE, EXTENDED_PUSH, EXTENDED_GRAPPLE, GRAPPLED, DETACHED
 	}
 
+	private Player myPlayer;
 	/// <summary>
 	/// The physics spring used to control the
 	/// arm.
@@ -87,7 +88,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 
 	// Start is called before the first frame update
 	void Start()
-    {
+  {
+		myPlayer = GetComponentInParent<Player>();
 		joint = GetComponent<RelativeJoint2D>();
 		baseExtention = joint.linearOffset;
 		baseAngularOffset = joint.angularOffset;
@@ -307,6 +309,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 	{
 		if (State != TentacleState.DETACHED)
 		{
+			myPlayer.onTentacleViolentDetach.Invoke();
 			onViolentDetach.Invoke();
 			Detach();
 		}

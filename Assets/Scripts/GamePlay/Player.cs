@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	[Tooltip("The maximum distance a tentacle can extend for grappling. If it is lower than the distance for pushing, both will be affected.")]
 	private float maxTentacleExtentionDistance = 5f;
+
+	public UnityEvent onTentacleViolentDetach;
+	public UnityEvent onEat;
 
 	private void Start()
 	{
