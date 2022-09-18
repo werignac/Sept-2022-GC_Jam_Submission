@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cuttable : MonoBehaviour
+public interface Cuttable
 {
-
-    public void Cut(GameObject thing)
-    {
-        print("Oof, ouch, owie my " + thing.name + " has been cut.");
-    }
+	public void Cut();
 }

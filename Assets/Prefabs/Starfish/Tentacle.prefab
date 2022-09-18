@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Mass: 0.25
   m_LinearDrag: 0.5
   m_AngularDrag: 0.5
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -188,5 +188,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7beee023864f748a5e95850f0e84a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canGrapple: 0
-  extentionKey: 101
+  onPush:
+    m_PersistentCalls:
+      m_Calls: []
+  onPushContact:
+    m_PersistentCalls:
+      m_Calls: []
+  onStretch:
+    m_PersistentCalls:
+      m_Calls: []
+  onStretchCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  onGrapple:
+    m_PersistentCalls:
+      m_Calls: []
+  onDetach:
+    m_PersistentCalls:
+      m_Calls: []
+  onViolentDetach:
+    m_PersistentCalls:
+      m_Calls: []

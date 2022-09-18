@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Tentacle : MonoBehaviour
+public class Tentacle : MonoBehaviour, Cuttable
 {
 	public enum TentacleState
 	{
@@ -27,11 +27,23 @@ public class Tentacle : MonoBehaviour
 	/// center of the starfish. Gotten from the joint at start.
 	/// </summary>
 	private float baseAngularOffset;
+	private TentacleState state;
 	/// <summary>
 	/// The current tentacle state (e.g. what the tentacle is
 	/// currently doing).
 	/// </summary>
-	public TentacleState State { get; private set; }
+	public TentacleState State { 
+		get {
+			return state;
+		}
+		private set {
+			TentacleState previousState = state;
+			state = value;
+
+			if (previousState == TentacleState.EXTENDED_GRAPPLE)
+				onStretchCancel.Invoke();
+		}
+	}
 
 	/// <summary>
 	/// The maximum distance the starfish can extend to
@@ -52,6 +64,7 @@ public class Tentacle : MonoBehaviour
 	public UnityEvent onStretchCancel = new UnityEvent();
 	public UnityEvent<Collision2D, ContactPoint2D> onGrapple = new UnityEvent<Collision2D, ContactPoint2D>();
 	public UnityEvent onDetach = new UnityEvent();
+	public UnityEvent onViolentDetach = new UnityEvent();
 	#endregion
 
 	#region Initialization
@@ -222,11 +235,7 @@ public class Tentacle : MonoBehaviour
 		{
 			joint.linearOffset = baseExtention;
 			joint.angularOffset = baseAngularOffset;
-			TentacleState previousState = State;
 			State = TentacleState.IDLE;
-
-			if (previousState == TentacleState.EXTENDED_GRAPPLE)
-				onStretchCancel.Invoke();
 
 			return true;
 		}
@@ -269,6 +278,15 @@ public class Tentacle : MonoBehaviour
 	}
 
 	#region Collision / Grappling
+
+	public void Cut()
+	{
+		if (State != TentacleState.DETACHED)
+		{
+			onViolentDetach.Invoke();
+			Detach();
+		}
+	}
 
 	/// <summary>
 	/// Create a joint to attach to non-rigidbody objects
