@@ -27,6 +27,6 @@ public class CollisionDelegator : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		onTriggerEnter.Invoke(collision);
+		onTriggerExit.Invoke(collision);
 	}
 }
