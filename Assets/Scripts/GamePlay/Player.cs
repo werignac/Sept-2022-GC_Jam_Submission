@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	public float armPushDistance = 1f;
 	public Rigidbody2D body;
 	public float maxAngular = 200f;
+	public float rollForcePerKilogram = 2f;
 	/// <summary> Indexed references to each of this Player's Tentacles, or to null if an index currently has no tentacle. </summary>
 	[SerializeField]
 	[HideInInspector]
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
 	{
 
 		body?.AddTorque(torqueDirection * rollTorquePerKilogram * (body.mass + myTentacles.Sum(t => t==null ?0f :t.GetMass())), ForceMode2D.Force);
+		body?.AddForce(new Vector2(-torqueDirection * rollForcePerKilogram * (body.mass + myTentacles.Sum(t => t == null ? 0f : t.GetMass())), 0), ForceMode2D.Force);
 	}
 
 	public Tentacle GetTentacle(int index) => myTentacles[index];
