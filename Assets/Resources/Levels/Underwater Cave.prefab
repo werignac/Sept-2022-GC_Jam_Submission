@@ -20353,7 +20353,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 6e1f59ade3bd75a4fa701897100e3639, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (1)
@@ -20423,7 +20423,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 6e1f59ade3bd75a4fa701897100e3639, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (9)
@@ -20493,7 +20493,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 96ee96c11e37ee74fbb44439db9f2a10, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (10)
@@ -20563,7 +20563,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 6e1f59ade3bd75a4fa701897100e3639, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (5)
@@ -20633,7 +20633,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 356a16a824684d249990640be899e371, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (3)
@@ -20703,7 +20703,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 96ee96c11e37ee74fbb44439db9f2a10, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (6)
@@ -20773,7 +20773,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (4)
@@ -20843,7 +20843,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 356a16a824684d249990640be899e371, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (7)
@@ -20913,7 +20913,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star
@@ -20983,7 +20983,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: 96ee96c11e37ee74fbb44439db9f2a10, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (2)
@@ -21053,7 +21053,7 @@ PrefabInstance:
     - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (8)
