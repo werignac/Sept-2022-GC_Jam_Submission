@@ -40,8 +40,13 @@ public class Tentacle : MonoBehaviour, Cuttable
 			TentacleState previousState = state;
 			state = value;
 
-			if (previousState == TentacleState.EXTENDED_GRAPPLE)
-				onStretchCancel.Invoke();
+			if(value == TentacleState.IDLE)
+			{
+				if (previousState == TentacleState.EXTENDED_GRAPPLE)
+					onStretchCancel.Invoke();
+				if (previousState == TentacleState.EXTENDED_PUSH)
+					onPushCancel.Invoke();
+			}
 		}
 	}
 
@@ -60,6 +65,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 	[Header("Events")]
 	public UnityEvent onPush = new UnityEvent();
 	public UnityEvent<Collision2D> onPushContact = new UnityEvent<Collision2D>();
+	public UnityEvent<Collision2D> onNonGrappleContact = new UnityEvent<Collision2D>();
+	public UnityEvent onPushCancel = new UnityEvent();
 	public UnityEvent onStretch = new UnityEvent();
 	public UnityEvent onStretchCancel = new UnityEvent();
 	public UnityEvent<Collision2D, ContactPoint2D> onGrapple = new UnityEvent<Collision2D, ContactPoint2D>();
@@ -175,9 +182,11 @@ public class Tentacle : MonoBehaviour, Cuttable
 		{
 			extentionAmount = Mathf.Clamp(extentionAmount, 0, maxExtendDistance);
 			joint.linearOffset = baseExtention + baseExtention.normalized * extentionAmount;
-			State = TentacleState.EXTENDED_PUSH;
 
-			onPush.Invoke();
+			if(State != TentacleState.EXTENDED_PUSH)
+				onPush.Invoke();
+
+			State = TentacleState.EXTENDED_PUSH;
 
 			return true;
 		}
@@ -198,9 +207,11 @@ public class Tentacle : MonoBehaviour, Cuttable
 			// See FixedUpdate to see how the arm
 			// adjusts itself to reach to the targetPoint.
 			extentionPullWorldPoint = targetPoint;
-			State = TentacleState.EXTENDED_GRAPPLE;
 
-			onStretch.Invoke();
+			if(State != TentacleState.EXTENDED_GRAPPLE)
+				onStretch.Invoke();
+
+			State = TentacleState.EXTENDED_GRAPPLE;
 			
 			return true;
 		}
@@ -382,6 +393,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 	{
 		if (State == TentacleState.EXTENDED_PUSH)
 			onPushContact.Invoke(collision);
+		if(State != TentacleState.EXTENDED_GRAPPLE)
+			onNonGrappleContact.Invoke(collision);
 
 		GrappleCollisionHandling(collision);
 	}
