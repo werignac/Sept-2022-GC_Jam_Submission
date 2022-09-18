@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 7421362858214178602}
   m_Layer: 8
   m_Name: t0_collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4995,7 +4995,7 @@ GameObject:
   - component: {fileID: 7862789044678071390}
   m_Layer: 8
   m_Name: Tentacle
-  m_TagString: Non-Grappleable
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
