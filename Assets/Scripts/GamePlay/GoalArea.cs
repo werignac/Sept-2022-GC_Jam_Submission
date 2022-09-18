@@ -7,15 +7,25 @@ public class GoalArea : MonoBehaviour
 {
 	public LevelsOrder levelsOrder;
 	public LevelProgress levelProgress;
+	public ParticleSystem goalParticles;
+
+	private bool levelWon = false;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.GetComponentInParent<Player>() != null)
+		if( !levelWon && other.GetComponentInParent<Player>() != null)
 		{
 			// Win the level.
+			goalParticles.Play();
+			levelWon = true;
 			levelProgress.CompletedLevel(levelsOrder.CurrentLevelIndex);
 			// Move to the next level.
-			levelsOrder.LoadNextLevel();
+			Invoke("NextLevel", 2f);
 		}
+	}
+
+	private void NextLevel()
+	{
+		levelsOrder.LoadNextLevel();
 	}
 }

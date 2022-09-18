@@ -5,9 +5,10 @@ using UnityEditor;
 
 public class CollectableStarfish : MonoBehaviour
 {
+#if UNITY_EDITOR
 	[SerializeField]
 	private CollectableStarfishData.StarfishColor _color;
-
+#endif
 	private Animator animator;
 
 	private HashSet<GameObject> playerPartsInContact = new HashSet<GameObject>();
@@ -39,9 +40,12 @@ public class CollectableStarfish : MonoBehaviour
 	public void NearColliderInBound(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
+		{
+			collision.gameObject.SendMessageUpwards("EatStarfish");
 			Destroy(gameObject);
+		}
 	}
-
+#if UNITY_EDITOR
 	public void SetColor(CollectableStarfishData.StarfishColor color)
 	{
 		animator = GetOrFindAnimator();
@@ -52,6 +56,7 @@ public class CollectableStarfish : MonoBehaviour
 	{
 		SetColor(_color);
 	}
+#endif
 }
 
 #if UNITY_EDITOR
