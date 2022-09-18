@@ -461,12 +461,15 @@ public class Tentacle : MonoBehaviour, Cuttable
 			SetColliderLength(0);
 
 		// Manage correction scale.
-		if(State==TentacleState.IDLE && myPlayer.tentacleEnumerable.Any(t => t.State==TentacleState.GRAPPLED))
-			joint.correctionScale = baseCorrectionScale * correctionFactorWhileOthersGrapple;
-		else if(State==TentacleState.GRAPPLED || State==TentacleState.EXTENDED_GRAPPLE)
-			joint.correctionScale = baseCorrectionScale * correctionFactorWhileGrappling;
-		else
-			joint.correctionScale = baseCorrectionScale;
+		if(joint != null)
+		{
+			if(State==TentacleState.IDLE && myPlayer.tentacleEnumerable.Any(t => t!=null && t.State==TentacleState.GRAPPLED))
+				joint.correctionScale = baseCorrectionScale * correctionFactorWhileOthersGrapple;
+			else if(State==TentacleState.GRAPPLED || State==TentacleState.EXTENDED_GRAPPLE)
+				joint.correctionScale = baseCorrectionScale * correctionFactorWhileGrappling;
+			else
+				joint.correctionScale = baseCorrectionScale;
+		}
 	}
 
 	private Vector2 RelativeVectorToBody(Vector2 toConvert)
