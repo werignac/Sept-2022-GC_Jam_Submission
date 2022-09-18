@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainGameScenePath: Assets/Scenes/Main Game Scene.unity
   levels:
-  - {fileID: 6781093010030590527, guid: a2dc53b97297ea1448582d81b7f9ee92, type: 3}
+  - {fileID: 3827767478092246534, guid: 53e518f21cbd53940a3a9fcb57c713b3, type: 3}
   - {fileID: 1283450127, guid: b7fe5ffe344a1094ba370ad821fad0a8, type: 3}
   - {fileID: 1283450127, guid: 3c2cecdda6ccbd740ba4fc2c3e5a6aef, type: 3}
   currentLevel: {fileID: 0}
-  levelToInstantiate: {fileID: 0}
+  levelToInstantiate: {fileID: 3827767478092246534, guid: 53e518f21cbd53940a3a9fcb57c713b3, type: 3}
   currentLevelIndex: 0
