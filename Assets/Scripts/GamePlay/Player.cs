@@ -77,6 +77,11 @@ public class Player : MonoBehaviour
 		body?.AddForce(new Vector2(-torqueDirection * rollForcePerKilogram * (body.mass + myTentacles.Sum(t => t == null ? 0f : t.GetMass())), 0), ForceMode2D.Force);
 	}
 
+	private void EatStarfish()
+	{
+		onEat.Invoke();
+	}
+
 	public Tentacle GetTentacle(int index) => myTentacles[index];
 	public int MaxTentacleCount => myTentacles.Length;
 }
