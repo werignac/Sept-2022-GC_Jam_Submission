@@ -10,7 +10,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 {
 	public enum TentacleState
 	{
-		IDLE, EXTENDED_PUSH, EXTENDED_GRAPPLE, GRAPPLED, DETACHED
+		IDLE, EXTENDED_PUSH, EXTENDED_GRAPPLE, GRAPPLED, GRAPPLED_AND_PUSH, DETACHED
 	}
 
 	public float correctionFactorWhileOthersGrapple = 0.2f;
@@ -152,6 +152,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 		{
 			case TentacleState.IDLE:
 			case TentacleState.EXTENDED_PUSH:
+			case TentacleState.GRAPPLED:
+			case TentacleState.GRAPPLED_AND_PUSH:
 				return true;
 			default:
 				return false;
@@ -185,6 +187,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 			case TentacleState.IDLE:
 			case TentacleState.EXTENDED_PUSH:
 			case TentacleState.EXTENDED_GRAPPLE:
+			case TentacleState.GRAPPLED_AND_PUSH:
 				return true;
 			default:
 				return false;
@@ -212,7 +215,10 @@ public class Tentacle : MonoBehaviour, Cuttable
 			if(State != TentacleState.EXTENDED_PUSH)
 				onPush.Invoke();
 
-			State = TentacleState.EXTENDED_PUSH;
+			if (State == TentacleState.GRAPPLED || State == TentacleState.GRAPPLED_AND_PUSH)
+				State = TentacleState.GRAPPLED_AND_PUSH;
+			else
+				State = TentacleState.EXTENDED_PUSH;
 
 			return true;
 		}
@@ -272,7 +278,11 @@ public class Tentacle : MonoBehaviour, Cuttable
 		{
 			joint.linearOffset = baseExtention;
 			joint.angularOffset = baseAngularOffset;
-			State = TentacleState.IDLE;
+			
+			if (State == TentacleState.GRAPPLED_AND_PUSH)
+				State = TentacleState.GRAPPLED;
+			else
+				State = TentacleState.IDLE;
 
 			return true;
 		}
@@ -286,7 +296,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 	/// <returns>Whether the grappling was able to be stopped.</returns>
 	public bool StopGrapple()
 	{
-		if (State == TentacleState.GRAPPLED)
+		if (State == TentacleState.GRAPPLED || State == TentacleState.GRAPPLED_AND_PUSH)
 		{
 			Detach();
 			return true;
@@ -302,15 +312,14 @@ public class Tentacle : MonoBehaviour, Cuttable
 	{
 		if (State != TentacleState.DETACHED)
 		{
-
-			FindObjectOfType<SimpleCameraFollower>().RemoveTarget(transform);
-
 			Destroy(joint);
 			// Do some visual effects to remove the arm.
 			State = TentacleState.DETACHED;
 
 			onDetach.Invoke();
 			
+			FindObjectOfType<SimpleCameraFollower>().RemoveTarget(transform);
+
 			return true;
 		}
 		else
