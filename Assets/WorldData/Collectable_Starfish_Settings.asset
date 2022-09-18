@@ -20,6 +20,6 @@ MonoBehaviour:
   - color: 2
     animator: {fileID: 22100000, guid: 356a16a824684d249990640be899e371, type: 2}
   - color: 3
-    animator: {fileID: 22100000, guid: a2c868d7023f2e640ab980928565209a, type: 2}
-  - color: 5
     animator: {fileID: 22100000, guid: 6e1f59ade3bd75a4fa701897100e3639, type: 2}
+  - color: 5
+    animator: {fileID: 22100000, guid: a2c868d7023f2e640ab980928565209a, type: 2}
