@@ -94,7 +94,9 @@ public abstract class PlayerCommander : MonoBehaviour
 					// (If the arm is grappled onto something, we shouldn't look for a new arm
 					// regardless of score, otherwise we would immediately detach our grappled
 					// arm)
-					if (oldTentacle.State != Tentacle.TentacleState.GRAPPLED && oldTentacle.State != Tentacle.TentacleState.DETACHED)
+					if (! (oldTentacle.State == Tentacle.TentacleState.GRAPPLED || 
+						oldTentacle.State == Tentacle.TentacleState.GRAPPLED_AND_PUSH || 
+						oldTentacle.State == Tentacle.TentacleState.DETACHED))
 					{
 						//Check to see if there's a better tentacle to grab with
 						Vector3 worldMousePosition = WorldMousePosition();
@@ -123,7 +125,7 @@ public abstract class PlayerCommander : MonoBehaviour
 		{
 			if(ShouldPushWithArm(armIndex))
 				myPlayer.PushWithArm(armIndex);
-			else if(myPlayer.GetTentacle(armIndex).State == Tentacle.TentacleState.EXTENDED_PUSH)
+			else if(myPlayer.GetTentacle(armIndex).State == Tentacle.TentacleState.EXTENDED_PUSH || myPlayer.GetTentacle(armIndex).State == Tentacle.TentacleState.GRAPPLED_AND_PUSH)
 				myPlayer.RetractArm(armIndex);
 		}
 
