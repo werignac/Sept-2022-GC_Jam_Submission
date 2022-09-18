@@ -44,7 +44,7 @@ public class CollectableStarfishData : ScriptableObject
 		foreach (StarfishEntry entry in data.starfish)
 		{
 			if (entry.color == color)
-				return RuntimeAnimatorController.Instantiate(entry.animator);
+				return entry.animator;
 		}
 
 		return null;

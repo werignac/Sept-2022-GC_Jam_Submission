@@ -50,6 +50,9 @@ public class CollectableStarfish : MonoBehaviour
 	{
 		animator = GetOrFindAnimator();
 		animator.runtimeAnimatorController = CollectableStarfishData.GetAnimatorForColor(color);
+		SerializedObject serializedAnimator = new SerializedObject(animator);
+		SerializedProperty runAnim = serializedAnimator.FindProperty("runtimeAnimatorController");
+		runAnim.objectReferenceValue = animator.runtimeAnimatorController;
 	}
 
 	public void SetColor()
