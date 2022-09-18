@@ -26,6 +26,8 @@ public class MovingObject : MonoBehaviour
     private Vector2 currentVelocity;
     private float targetSpeed;
     private int currentTarget;
+    private Rigidbody2D body;
+    private Vector2 pastPosition;
 
     private const float acceleration = 100f;
 
@@ -50,6 +52,7 @@ public class MovingObject : MonoBehaviour
         }
         targetSpeed = distance / moveTime;
         currentTarget = Mathf.Min(1, movePoints.Length);
+        body = GetComponent<Rigidbody2D>();
     }
 
 
@@ -68,6 +71,10 @@ public class MovingObject : MonoBehaviour
         {
             Debug.DrawLine(transform.position + new Vector3(movePoints[movePoints.Length - 1].x, movePoints[movePoints.Length - 1].y, 0), transform.position);
         }
+    }
+
+    private void FixedUpdate()
+    {
 
         if (Application.isPlaying)
         {
@@ -78,26 +85,26 @@ public class MovingObject : MonoBehaviour
             {
                 currentVelocity = targetSpeed * currentVelocity.normalized;
             }
-            transform.Translate(currentVelocity * Time.deltaTime);
-            if (((targetPos.x - v2Pos.x) * (targetPos.x - transform.position.x) <= 0 && (targetPos.y - v2Pos.y) * (targetPos.y - transform.position.y) <= 0))
+            if (((targetPos.x - v2Pos.x) * (targetPos.x - pastPosition.x) <= 0 && (targetPos.y - v2Pos.y) * (targetPos.y - pastPosition.y) <= 0))
             {
                 if (returning)
                 {
                     --currentTarget;
                 }
-                else {
+                else
+                {
                     ++currentTarget;
                 }
-                if(currentTarget >= goalPoints.Length || currentTarget < 0)
+                if (currentTarget >= goalPoints.Length || currentTarget < 0)
                 {
-                    if(loop)
+                    if (loop)
                     {
                         currentTarget = 0;
                     }
                     else
                     {
                         returning = !returning;
-                        if(returning)
+                        if (returning)
                         {
                             currentTarget -= 2;
                         }
@@ -108,6 +115,8 @@ public class MovingObject : MonoBehaviour
                     }
                 }
             }
+            pastPosition = v2Pos;
+            body.MovePosition(v2Pos + (currentVelocity * Time.fixedDeltaTime));
         }
     }
 
@@ -118,7 +127,7 @@ public class MovingObject : MonoBehaviour
             bool onTop = false;
             foreach(var contact in collision.contacts)
             {
-                if (contact.normal.y > 0.8)
+                if (contact.normal.y < -0.8)
                 {
                     onTop = true;
                     break;
@@ -126,7 +135,15 @@ public class MovingObject : MonoBehaviour
             }
             if (onTop)
             {
-                collision.transform.Translate(currentVelocity * Time.deltaTime);
+                Rigidbody2D otherBody = collision.gameObject.GetComponent<Rigidbody2D>();
+                if (otherBody == null)
+                {
+                    collision.transform.Translate(currentVelocity * Time.deltaTime);
+                }
+                else
+                {
+                    otherBody.MovePosition(new Vector2(collision.transform.position.x, collision.transform.position.y) + (currentVelocity * Time.fixedDeltaTime));
+                }
             }
         }
     }

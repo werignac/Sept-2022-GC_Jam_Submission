@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 /// <summary> This script runs earlier in the Script Execution Order (see Project Settings). </summary>
 [RequireComponent(typeof(Player))]
@@ -13,10 +14,53 @@ public abstract class PlayerCommander : MonoBehaviour
 	/// <summary> Maps a mouse button index to the index of the arm the button is currently controlling, or to -1 if the button isn't controlling an arm. </summary>
 	private int[] mouseButtonToControlledArmIndex = { -1, -1 };
 	private float torqueDirection = 0;
+	private KeyCode restartButton = KeyCode.R;
+	/// <summary>
+	/// How much better the score of a new grappling arm must be over
+	/// the old grappling arm to switch.
+	/// </summary>
+	private const float armTransferThreshold = 0.5f;
 
 	private void Start()
 	{
 		myPlayer = GetComponent<Player>();
+	}
+
+	private int DecideBestTentacle(Tuple<float, int>[] sortedTentacles, int forMouseButton)
+	{
+		// If the old index is close enough, use it.
+		int oldIndex = mouseButtonToControlledArmIndex[forMouseButton];
+		bool relevantPredecessor = (oldIndex >= 0) ? myPlayer.GetTentacle(oldIndex).CanExtendGrapple() : false;
+
+		float scoreToBeat = float.NegativeInfinity;
+		if (relevantPredecessor)
+		{
+			for (int i = 0; i < sortedTentacles.Length; i++)
+				if (sortedTentacles[i].Item2 == oldIndex)
+					scoreToBeat = sortedTentacles[i].Item1;
+		}
+
+		int newControlledArmIndex = (relevantPredecessor) ? oldIndex : -1;
+		for (int i = 0; i < sortedTentacles.Length; i++)
+		{
+			Tuple<float, int> entry = sortedTentacles[i];
+			int tentacleIndex = entry.Item2;
+			Tentacle tentacle = myPlayer.GetTentacle(tentacleIndex);
+
+			int indexInMouseMapping = Array.IndexOf(mouseButtonToControlledArmIndex, tentacleIndex);
+
+			bool canExtend = tentacle.CanExtendGrapple();
+			bool isNotBeingUsedByOtherButton = (indexInMouseMapping == -1 || indexInMouseMapping == forMouseButton);
+			bool beatsScore = entry.Item1 - scoreToBeat > armTransferThreshold;
+
+			if (canExtend && isNotBeingUsedByOtherButton && beatsScore)
+			{
+				newControlledArmIndex = tentacleIndex;
+				break;
+			}
+		}
+
+		return newControlledArmIndex;
 	}
 
 	private void Update()
@@ -31,14 +75,42 @@ public abstract class PlayerCommander : MonoBehaviour
 				if(Input.GetMouseButtonDown(mouseButton))
 				{
 					Vector3 worldMousePosition = WorldMousePosition();
-					int newControlledArmIndex = FindBestArmToTarget(worldMousePosition);
-					myPlayer.ExtendArm(newControlledArmIndex, worldMousePosition);
-					mouseButtonToControlledArmIndex[mouseButton] = newControlledArmIndex;
+					Tuple<float,int>[] bestArms = FindBestArmsToTarget(worldMousePosition);
+					int newControlledArmIndex = DecideBestTentacle(bestArms, mouseButton);
+					if (newControlledArmIndex != -1)
+					{
+						myPlayer.ExtendArm(newControlledArmIndex, worldMousePosition);
+						mouseButtonToControlledArmIndex[mouseButton] = newControlledArmIndex;
+					}
 				}
 			} else // If the button IS controlling an arm...
 			{
+				// Update the position of the arm if the mouse is still being held
+				if (Input.GetMouseButton(mouseButton))
+				{
+					int oldControlledArmIndex = mouseButtonToControlledArmIndex[mouseButton];
+					Tentacle oldTentacle = myPlayer.GetTentacle(oldControlledArmIndex);
+					// If the arm for this mouse button isn't grappled onto anything...
+					// (If the arm is grappled onto something, we shouldn't look for a new arm
+					// regardless of score, otherwise we would immediately detach our grappled
+					// arm)
+					if (oldTentacle.State != Tentacle.TentacleState.GRAPPLED && oldTentacle.State != Tentacle.TentacleState.DETACHED)
+					{
+						//Check to see if there's a better tentacle to grab with
+						Vector3 worldMousePosition = WorldMousePosition();
+						Tuple<float, int>[] bestArms = FindBestArmsToTarget(worldMousePosition);
+						int newControlledArmIndex = DecideBestTentacle(bestArms, mouseButton);
+						if (newControlledArmIndex != oldControlledArmIndex)
+							myPlayer.StopGrappleExtending(oldControlledArmIndex);
+						if (newControlledArmIndex != -1)
+						{
+							myPlayer.ExtendArm(newControlledArmIndex, worldMousePosition);
+							mouseButtonToControlledArmIndex[mouseButton] = newControlledArmIndex;
+						}
+					}
+				}
 				// Can [retract or detach] and stop controlling the current arm:
-				if( ! Input.GetMouseButton(mouseButton))
+				else
 				{
 					myPlayer.StopGrappleExtending(controlledArmIndex);
 					mouseButtonToControlledArmIndex[mouseButton] = -1;
@@ -57,6 +129,12 @@ public abstract class PlayerCommander : MonoBehaviour
 
 		// Determine the torque direction.
 		torqueDirection = GetTorqueDirection();
+
+		if(Input.GetKeyUp(restartButton))
+        {
+			LevelsOrder l = Resources.Load<LevelsOrder>("LevelOrder");
+			l.LoadLevel(l.CurrentLevelIndex);
+        }
 	}
 
 	private void FixedUpdate()
@@ -65,27 +143,37 @@ public abstract class PlayerCommander : MonoBehaviour
 		myPlayer.ApplyRollTorque(torqueDirection);
 	}
 
-	/// <returns> The index of the arm best suited to shooting toward the target world-space position. Returns 0 if the player has no tentacles.</returns>
-	public int FindBestArmToTarget(Vector3 targetPosition)
+	/// <summary>
+	/// Orders the arm indices by those that are the best suited
+	/// to reach for a point in world space.
+	/// 
+	/// Does not check arm state.
+	/// </summary>
+	/// <param name="targetPosition">The point to reach.</param>
+	/// <returns>An ordered list of the indicies with the first being the best arm to reach the point.</returns>
+	public Tuple<float,int>[] FindBestArmsToTarget(Vector3 targetPosition)
 	{
-		// This function operates in the Player's local space.
+		// Keys: Score, Values: ArmIndex (Sorts by score)
+		List<Tuple<float, int>> scoredBestArms = new List<Tuple<float, int>>();
 		Vector3 targetDirection = myPlayer.body.transform.worldToLocalMatrix.MultiplyPoint(targetPosition).normalized;
-		int bestArmIndex = 0;
-		float bestArmScore = float.NegativeInfinity;
-		for(int armIndex=0; armIndex<myPlayer.MaxTentacleCount; armIndex++)
+
+		for (int armIndex = 0; armIndex < myPlayer.MaxTentacleCount; armIndex++)
 		{
 			Tentacle tentacle = myPlayer.GetTentacle(armIndex);
-			if(tentacle!=null && (tentacle.State==Tentacle.TentacleState.IDLE || tentacle.State==Tentacle.TentacleState.EXTENDED_PUSH))
+			if (tentacle != null)
 			{
 				float newScore = Vector3.Dot(tentacle.GetExtentionDirection(), targetDirection);
-				if(newScore > bestArmScore)
-				{
-					bestArmScore = newScore;
-					bestArmIndex = armIndex;
-				}
+				Tuple<float, int> entry = new Tuple<float, int>(newScore, armIndex);
+				// I am too lazy to do a binary search.
+				int i = 0;
+				while (i < scoredBestArms.Count && scoredBestArms[i].Item1 > entry.Item1)
+					i++;
+
+				scoredBestArms.Insert(i, entry);
 			}
 		}
-		return bestArmIndex;
+
+		return scoredBestArms.ToArray();
 	}
 
 	public Vector3 WorldMousePosition()
