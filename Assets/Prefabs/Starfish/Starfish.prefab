@@ -14643,7 +14643,7 @@ Rigidbody2D:
   m_LinearDrag: 3
   m_AngularDrag: 5
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8b88de8f74dffa14b939e27ba6e30d76, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -14833,11 +14833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac00ead0d4a084fa0be061d4064af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollTorquePerKgMeter: 100
+  rollTorquePerKgMeter: 150
   armPushDistance: 1.2
   body: {fileID: 1223129314572861253}
   maxAngular: 200
-  rollForcePerKilogram: 50
+  rollForcePerKilogram: 10
   myTentacles: []
   maxTentacleExtentionDistance: 5
   onTentacleViolentDetach:
