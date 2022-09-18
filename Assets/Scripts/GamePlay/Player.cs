@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-	[Tooltip("The amount of torque, multiplied by the current mass of the starfish, to be used for rolling.")]
-	public float rollTorquePerKilogram = 10f;
+	[Tooltip("The amount of torque, multiplied by the current inertia of the starfish, to be used for rolling.")]
+	public float rollTorquePerKgMeter = 10f;
 	public float armPushDistance = 1f;
 	public Rigidbody2D body;
 	public float maxAngular = 200f;
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
 	public void ApplyRollTorque(float torqueDirection)
 	{
 
-		body?.AddTorque(torqueDirection * rollTorquePerKilogram * (body.mass + myTentacles.Sum(t => t==null ?0f :t.GetMass())), ForceMode2D.Force);
+		body?.AddTorque(torqueDirection * rollTorquePerKgMeter * (body.inertia + myTentacles.Sum(t => t==null ?0f :t.GetInertiaAroundPlayer())), ForceMode2D.Force);
 		body?.AddForce(new Vector2(-torqueDirection * rollForcePerKilogram * (body.mass + myTentacles.Sum(t => t == null ? 0f : t.GetMass())), 0), ForceMode2D.Force);
 	}
 

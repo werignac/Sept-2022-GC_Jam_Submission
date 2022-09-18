@@ -14640,7 +14640,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10
+  m_LinearDrag: 3
   m_AngularDrag: 5
   m_GravityScale: 5
   m_Material: {fileID: 0}
@@ -14711,7 +14711,7 @@ Transform:
   m_GameObject: {fileID: 1223129316032257850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8098078, y: 1.8098078, z: 1.8098078}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1223129314572861252}
@@ -14778,7 +14778,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1223129316032257850}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 500db975a999bbf459951430f1df7a7e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -14833,8 +14833,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac00ead0d4a084fa0be061d4064af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   rollTorquePerKilogram: 10
   armPushDistance: 1.2
+=======
+  rollTorquePerKgMeter: 80
+  armPushDistance: 1.5
+>>>>>>> 5dd181f876d266f930965cbee54d198c4c1cd143
   body: {fileID: 1223129314572861253}
   maxAngular: 200
   rollForcePerKilogram: 10
