@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e0518554af05b4fb94854e2226689c, type: 3}
+  m_Name: Collectable_Starfish_Settings
+  m_EditorClassIdentifier: 
+  starfish:
+  - color: 0
+    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+  - color: 1
+    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+  - color: 2
+    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+  - color: 3
+    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
+  - color: 5
+    animator: {fileID: 22100000, guid: b065acd7a0bdda94bb5ec190f6d47208, type: 2}
