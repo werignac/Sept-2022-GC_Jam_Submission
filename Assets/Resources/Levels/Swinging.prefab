@@ -18991,10 +18991,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Always Spin Disk (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8338712810844079716, guid: 341fc46d8f0c76249a918ff462d49499, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8342325774272787790, guid: 341fc46d8f0c76249a918ff462d49499, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -19013,11 +19009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8342325774272787790, guid: 341fc46d8f0c76249a918ff462d49499, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.5
+      value: 74.74
       objectReference: {fileID: 0}
     - target: {fileID: 8342325774272787790, guid: 341fc46d8f0c76249a918ff462d49499, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.299995
+      value: 27.02
       objectReference: {fileID: 0}
     - target: {fileID: 8342325774272787790, guid: 341fc46d8f0c76249a918ff462d49499, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19323,9 +19319,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19385,9 +19389,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19447,9 +19459,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19509,9 +19529,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19571,9 +19599,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19633,9 +19669,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19695,9 +19739,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19757,9 +19809,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19819,9 +19879,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19881,9 +19949,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
@@ -19943,9 +20019,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154826, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4696637175103154827, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
       propertyPath: m_Name
       value: Collectable Star (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696637175103154839, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
+      propertyPath: _color
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28655b64b6e7e7740aaa237d3107306a, type: 3}
