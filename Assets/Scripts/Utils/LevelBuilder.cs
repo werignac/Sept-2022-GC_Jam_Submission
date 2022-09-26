@@ -15,9 +15,11 @@ public class LevelBuilder : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            var collider = gameObject.AddComponent<PolygonCollider2D>();
-            collider.points = new Vector2[] { new Vector2(0, 0), new Vector2(levelDimentions.x, 0), levelDimentions, new Vector2(0, levelDimentions.y) };
+            var collider = gameObject.AddComponent<BoxCollider2D>();
+			collider.size = new Vector2(levelDimentions.x, levelDimentions.y);
+			collider.offset = collider.size / 2;
             collider.isTrigger = true;
+			gameObject.AddComponent<LevelBounds>();
             //GameObject.FindGameObjectWithTag("VirtualCamera").GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = collider;
         }
     }

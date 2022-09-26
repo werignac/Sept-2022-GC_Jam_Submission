@@ -15,6 +15,7 @@ public abstract class PlayerCommander : MonoBehaviour
 	private int[] mouseButtonToControlledArmIndex = { -1, -1 };
 	private float torqueDirection = 0;
 	private KeyCode restartButton = KeyCode.R;
+	public bool Reloaded { get; private set; }
 	/// <summary>
 	/// How much better the score of a new grappling arm must be over
 	/// the old grappling arm to switch.
@@ -24,6 +25,7 @@ public abstract class PlayerCommander : MonoBehaviour
 	private void Start()
 	{
 		myPlayer = GetComponent<Player>();
+		Reloaded = false;
 	}
 
 	private int DecideBestTentacle(Tuple<float, int>[] sortedTentacles, int forMouseButton)
@@ -132,11 +134,21 @@ public abstract class PlayerCommander : MonoBehaviour
 		// Determine the torque direction.
 		torqueDirection = GetTorqueDirection();
 
-		if(Input.GetKeyUp(restartButton))
+		if(Input.GetKeyUp(restartButton) && ! Reloaded)
         {
-			LevelsOrder l = Resources.Load<LevelsOrder>("LevelOrder");
-			l.LoadLevel(l.CurrentLevelIndex);
-        }
+			WerignacUtils.ResetLevel();
+			Reloaded = true;
+		}
+	}
+
+	private void OnLevelWon()
+	{
+		Reloaded = true;
+	}
+
+	private void OnReset()
+	{
+		Reloaded = true;
 	}
 
 	private void FixedUpdate()

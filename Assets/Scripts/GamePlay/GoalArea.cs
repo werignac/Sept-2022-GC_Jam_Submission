@@ -19,6 +19,7 @@ public class GoalArea : MonoBehaviour
 			goalParticles.Play();
 			levelWon = true;
 			levelProgress.CompletedLevel(levelsOrder.CurrentLevelIndex);
+			WerignacUtils.BroadcastToAll("OnLevelWon", SendMessageOptions.DontRequireReceiver);
 			// Move to the next level.
 			Invoke("NextLevel", 2f);
 		}

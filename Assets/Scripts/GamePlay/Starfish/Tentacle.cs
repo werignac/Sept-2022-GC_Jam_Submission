@@ -18,7 +18,6 @@ public class Tentacle : MonoBehaviour, Cuttable
 
 	private float baseCorrectionScale;
 	private Player myPlayer;
-	private Rigidbody2D rigidbody;
 	/// <summary>
 	/// The physics spring used to control the
 	/// arm.
@@ -96,7 +95,6 @@ public class Tentacle : MonoBehaviour, Cuttable
 	void Start()
   {
 		myPlayer = GetComponentInParent<Player>();
-		rigidbody = GetComponent<Rigidbody2D>();
 		joint = GetComponent<RelativeJoint2D>();
 		baseExtention = joint.linearOffset;
 		baseAngularOffset = joint.angularOffset;
@@ -110,8 +108,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 		FindObjectOfType<SimpleCameraFollower>().AddTarget(transform);
 	}
 
-	public float GetMass() => rigidbody.mass;
-	public float GetInertiaAroundPlayer() => rigidbody.inertia + rigidbody.mass*Mathf.Pow(baseExtention.magnitude, 2); // Parallel axis theorem
+	public float GetMass() => GetComponent<Rigidbody2D>().mass;
+	public float GetInertiaAroundPlayer() => GetComponent<Rigidbody2D>().inertia + GetComponent<Rigidbody2D>().mass*Mathf.Pow(baseExtention.magnitude, 2); // Parallel axis theorem
 
 	/// <summary>
 	/// Sets the maximum distance any arm can extend.
