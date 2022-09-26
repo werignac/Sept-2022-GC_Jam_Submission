@@ -17,7 +17,7 @@ public class LevelBounds : MonoBehaviour
 	{
 		PlayerCommander player = collision.gameObject.GetComponentInParent<PlayerCommander>();
 		Tentacle tentacle = collision.gameObject.GetComponentInParent<Tentacle>();
-		if (tentacle && tentacle.State == Tentacle.TentacleState.DETACHED)
+		if (tentacle)
 			player = null;
 			
 
