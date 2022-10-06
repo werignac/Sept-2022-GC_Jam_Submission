@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1835b38191272e243bc31e594314982f, type: 3}
   m_Name: LevelProgress
   m_EditorClassIdentifier: 
-  levelsCompleted: 6
+  levelsCompleted: 2
