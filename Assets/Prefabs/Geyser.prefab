@@ -49,7 +49,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4842,7 +4842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7396336274435931128}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1388924204165834953
 SpriteRenderer:
@@ -4905,7 +4905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1012262908505068254}
-  - component: {fileID: 5192629027902155693}
+  - component: {fileID: 5662824441993817216}
   - component: {fileID: 4513456084651755533}
   m_Layer: 0
   m_Name: Geyser
@@ -4930,8 +4930,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &5192629027902155693
-CapsuleCollider2D:
+--- !u!61 &5662824441993817216
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4944,8 +4944,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 5, y: 30}
-  m_Direction: 0
+  m_EdgeRadius: 0
 --- !u!114 &4513456084651755533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4958,7 +4968,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b78e792521c82b46b2fb42f578d6303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 20}
+  forceMagnitude: 25
+  timeToFullForce: 0.5
+  sinusoidBottom: 27.5
+  sinusoidPeriod: 2
 --- !u!1 &7870834664293422224
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,8 +5000,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7106115459671096354}
   - {fileID: 4571710682734642884}
+  - {fileID: 7106115459671096354}
   - {fileID: 4895747184869055834}
   m_Father: {fileID: 1012262908505068254}
   m_RootOrder: 0
@@ -5024,7 +5037,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7396336274435931128}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &3810985778080838795
 ParticleSystem:
@@ -5042,7 +5055,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
