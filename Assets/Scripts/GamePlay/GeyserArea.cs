@@ -7,8 +7,6 @@ public class GeyserArea : MonoBehaviour
 	[SerializeField]
 	private float forceMagnitude = 20f;
 	[SerializeField]
-	private float timeToFullForce = 1f;
-	[SerializeField]
 	private float sinusoidBottom = 25;
 	[SerializeField]
 	private float sinusoidPeriod = 1f;
