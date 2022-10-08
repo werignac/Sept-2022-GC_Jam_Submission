@@ -60,8 +60,15 @@ public class Tentacle : MonoBehaviour, Cuttable
 				if (previousState == TentacleState.EXTENDED_PUSH)
 					onPushCancel.Invoke();
 			}
+
+			if (previousState == TentacleState.GRAPPLED && state == TentacleState.DETACHED)
+			{
+				grappleObj.SendMessage("OnGrappleDetach", SendMessageOptions.DontRequireReceiver);
+			}
 		}
 	}
+
+	private GameObject grappleObj = null;
 
 	private float groundAngleThreshold = 10f;
 
@@ -417,7 +424,9 @@ public class Tentacle : MonoBehaviour, Cuttable
 					joint.angularOffset = baseAngularOffset;
 					State = TentacleState.GRAPPLED;
 
+					grappleObj = collision.gameObject;
 					onGrapple.Invoke(collision, contact);
+					collision.gameObject.SendMessage("OnGrapple", contact, SendMessageOptions.DontRequireReceiver);
 
 					break;
 				}
