@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
 	[Tooltip("The maximum distance a tentacle can extend for grappling. If it is lower than the distance for pushing, both will be affected.")]
 	private float maxTentacleExtentionDistance = 5f;
 
+	[SerializeField]
+	private float hurtForceMagnitude = 100f;
+
+	[Header("Events")]
 	public UnityEvent onTentacleViolentDetach;
 	public UnityEvent onEat;
 
@@ -39,7 +43,13 @@ public class Player : MonoBehaviour
 		myTentacles = GetComponentsInChildren<Tentacle>();
 
 		foreach (Tentacle tentacle in MyTentacles)
+		{
 			tentacle.SetMaxExtentionLength(maxTentacleExtentionDistance);
+
+			tentacle.onViolentDetach.AddListener(() => {
+				body.AddRelativeForce(-tentacle.GetExtentionDirection() * hurtForceMagnitude);
+			});
+		}
 
 		//GameObject.FindWithTag("CameraTargetGroup").GetComponent<CameraGroupController>().SetUpTentacles(gameObject);
 
