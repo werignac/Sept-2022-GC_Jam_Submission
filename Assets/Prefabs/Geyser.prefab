@@ -4969,7 +4969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMagnitude: 25
-  timeToFullForce: 0.5
   sinusoidBottom: 27.5
   sinusoidPeriod: 2
 --- !u!1 &7870834664293422224

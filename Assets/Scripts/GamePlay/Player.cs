@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 			return myTentacles;
 		}
 	}
+	public int AttachedTentacles { get; private set; }
+
 	public IEnumerable<Tentacle> tentacleEnumerable => MyTentacles;
 	[SerializeField]
 	[Tooltip("The maximum distance a tentacle can extend for grappling. If it is lower than the distance for pushing, both will be affected.")]
@@ -51,12 +53,16 @@ public class Player : MonoBehaviour
 			tentacle.SetMaxExtentionLength(maxTentacleExtentionDistance);
 
 			tentacle.onViolentDetach.AddListener(() => {
-				body.AddRelativeForce(-tentacle.GetExtentionDirection() * hurtForceMagnitude);
+				body.AddRelativeForce(-tentacle.GetExtentionDirection() * hurtForceMagnitude, ForceMode2D.Impulse);
 				nextHurt = Time.time + hurtInterval;
 			});
 
+			tentacle.onDetach.AddListener(() => AttachedTentacles--);
+
 			tentacle.CanBeHurt = () => CanBeHurt;
 		}
+
+		AttachedTentacles = myTentacles.Length;
 
 		//GameObject.FindWithTag("CameraTargetGroup").GetComponent<CameraGroupController>().SetUpTentacles(gameObject);
 

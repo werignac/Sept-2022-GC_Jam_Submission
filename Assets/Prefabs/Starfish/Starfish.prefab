@@ -14840,7 +14840,8 @@ MonoBehaviour:
   rollForcePerKilogram: 10
   myTentacles: []
   maxTentacleExtentionDistance: 5
-  hurtForceMagnitude: 1000
+  hurtForceMagnitude: 50
+  hurtInterval: 1
   onTentacleViolentDetach:
     m_PersistentCalls:
       m_Calls:
