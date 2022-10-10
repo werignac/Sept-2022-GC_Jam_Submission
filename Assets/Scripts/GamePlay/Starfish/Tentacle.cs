@@ -61,7 +61,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 					onPushCancel.Invoke();
 			}
 
-			if (previousState == TentacleState.GRAPPLED && state == TentacleState.DETACHED)
+			if ((previousState == TentacleState.GRAPPLED || previousState == TentacleState.GRAPPLED_AND_PUSH) && state == TentacleState.DETACHED)
 			{
 				grappleObj.SendMessage("OnGrappleDetach", SendMessageOptions.DontRequireReceiver);
 			}
