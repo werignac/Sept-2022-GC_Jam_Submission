@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using System;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -82,6 +83,8 @@ public class Tentacle : MonoBehaviour, Cuttable
 	/// extend to whilst in EXTENDED_GRAPPLE mode.
 	/// </summary>
 	private Vector2 extentionPullWorldPoint;
+
+	public Func<bool> CanBeHurt { set; private get; }
 
 	#region Events
 	[Header("Events")]
@@ -335,7 +338,7 @@ public class Tentacle : MonoBehaviour, Cuttable
 
 	public void Cut()
 	{
-		if (State != TentacleState.DETACHED)
+		if (CanBeHurt() && State != TentacleState.DETACHED)
 		{
 			myPlayer.onTentacleViolentDetach.Invoke();
 			onViolentDetach.Invoke();

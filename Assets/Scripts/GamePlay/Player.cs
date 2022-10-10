@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
 
 	[SerializeField]
 	private float hurtForceMagnitude = 100f;
+	[SerializeField]
+	private float hurtInterval = 1f;
+	private float nextHurt = 0f;
+	private bool CanBeHurt { get { return Time.time > nextHurt; } }
 
 	[Header("Events")]
 	public UnityEvent onTentacleViolentDetach;
@@ -48,7 +52,10 @@ public class Player : MonoBehaviour
 
 			tentacle.onViolentDetach.AddListener(() => {
 				body.AddRelativeForce(-tentacle.GetExtentionDirection() * hurtForceMagnitude);
+				nextHurt = Time.time + hurtInterval;
 			});
+
+			tentacle.CanBeHurt = () => CanBeHurt;
 		}
 
 		//GameObject.FindWithTag("CameraTargetGroup").GetComponent<CameraGroupController>().SetUpTentacles(gameObject);
