@@ -12,6 +12,8 @@ public class Anchor : MonoBehaviour
 
 	private Coroutine respawnRoutine;
 
+	private int grappleCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,10 @@ public class Anchor : MonoBehaviour
 
 		respawnPosition = transform.position;
 		respawnRotation = transform.rotation;
-    }
+
+		grappleCount = 0;
+
+	}
 
 	private void Respawn()
 	{
@@ -42,10 +47,13 @@ public class Anchor : MonoBehaviour
 			respawnRoutine = null;
 		}
 		rigid.constraints = 0;
+		grappleCount++;
 	}
 
 	private void OnGrappleDetach()
 	{
-		respawnRoutine = StartCoroutine(RespawnTimer());
+		grappleCount--;
+		if (grappleCount == 0)
+			respawnRoutine = StartCoroutine(RespawnTimer());
 	}
 }
